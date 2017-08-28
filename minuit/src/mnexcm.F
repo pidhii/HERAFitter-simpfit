@@ -35,7 +35,9 @@ CC        either directly by skipping to the corresponding code in
 CC        MNEXCM, or by setting up a call to a subroutine
 CC
 #include "./d506cm.inc"
+#include "../../include/CI.inc"
       EXTERNAL FCN,FUTIL
+      EXTERNAL fill_CI_rules, CI_read_parameters, CI_read_Rq, hf_stop
       CHARACTER*(*) COMAND
 C   Cannot say DIMENSION PLIST(LLIST) since LLIST can be =0.
       DIMENSION PLIST(*)
@@ -43,7 +45,9 @@ C   Cannot say DIMENSION PLIST(LLIST) since LLIST can be =0.
       DIMENSION XPTU(MXPT), YPTU(MXPT)
 C  alphabetical order of command names!
       CHARACTER*10 CNAME(40), CNEWAY, CHWHY*18, C26*30, CVBLNK*2
+      CHARACTER*32 CISimpFitStep
       LOGICAL LTOFIX, LFIXED, LFREED
+      LOGICAL doCI, CIDoSimpFit
 C
       CHARACTER COMD*4
       CHARACTER CLOWER*26, CUPPER*26
@@ -182,7 +186,32 @@ C                                        . . . . . . migrad, minimize
   400 CONTINUE
       NF = NFCN
       APSI = EPSI
+      
+      call fill_CI_rules(doCI, CIDoSimpFit, CISimpFitStep)
+      IF(CIDoSimpFit) THEN
+         IF(TRIM(CISimpFitStep) .eq. 'CalcDerivatives') THEN
+            PRINT *,"CI::SimpFit: reading parameters, skipping MIGR ..."
+            CALL CI_read_parameters(.true.,.true.)
+            CALL CI_calc_derivatives
+            GOTO 5000
+         ELSEIF(TRIM(CISimpFitStep) .eq. 'SimpFit') THEN
+            PRINT *, " ---<=={ checking errors (I) }==>--- "
+            CALL CI_SCAN_PARERRORS
+            CALL CI_READ_SIMP_FIT_DATA
+            PRINT *, " ---<=={ checking errors (II) }==>--- "
+            CALL CI_SCAN_PARERRORS
+            CALL CI_READ_MISSING_PARERRORS
+            PRINT *, " ---<=={ checking errors (III) }==>--- "
+            CALL CI_SCAN_PARERRORS
+         ENDIF
+      ENDIF
+
+      PRINT *, " ---<=={ checking errors (IV) }==>--- "
+      CALL CI_SCAN_PARERRORS
       CALL MNMIGR(FCN,FUTIL)
+      PRINT *, " ---<=={ checking errors (V) }==>--- "
+      CALL CI_SCAN_PARERRORS
+      
       CALL MNWERR
       IF (ISW(4) .GE. 1)         GO TO 5000
         IERFLG = 4

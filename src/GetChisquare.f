@@ -498,11 +498,11 @@ C-----------------------------------------------------
             i = syst_meas_idx(i1,k)
 
             if (scaling_type.eq. isNoRescale) then
-               scale = daten(i)
+               scale = datens(i)
             elseif (scaling_type.eq. isLinear) then
                scale = theo(i)
             elseif (scaling_type.eq. isPoisson) then
-               scale = sqrt(theo(i)*daten(i))
+               scale = sqrt(theo(i)*datens(i))
             elseif (scaling_type.eq. isLogNorm) then
                scale = theo(i)
                call HF_errlog(271120121,
@@ -594,7 +594,7 @@ C-----------------------------------------------------------
       include 'steering.inc'
       double precision d,t,mix
 C-------------------------------------------------------------
-      d = daten(idx)
+      d = datens(idx)
       t = theo(idx)
 
       if ( t.le.0 ) then
@@ -720,9 +720,10 @@ C Re-scale for systematic shifts:
                endif
             enddo
          endif
-         ScaledErrors(i) = sqrt((Stat*Sum)**2+StatConst**2+Unc**2+Offs*daten(i)**2)
+         ScaledErrors(i) = sqrt((Stat*Sum)**2+StatConst**2+(Unc*Sum)**2 +
+     $   Offs*datens(i)**2)
          ScaledErrorsStat(i) = sqrt((Stat*Sum)**2+StatConst**2)
-         ScaledErrorsSyst(i) = sqrt(Unc**2+Offs*daten(i)**2)
+         ScaledErrorsSyst(i) = sqrt((Unc*Sum)**2+Offs*datens(i)**2)
       enddo
 
 C
@@ -857,7 +858,7 @@ C Start with "C"
 
                   if ( list_covar_inv(i) .eq. 0) then
 C Diagonal error:
-                     d_minus_t = daten(i) - theo(i) + ShiftExternal(i)
+                     d_minus_t = daten(i) - theo(i) - ShiftExternal(i)
                      C(l) = C(l) + ScaledErrors(i)
      $                    *ScaledGamma(l,i)*( d_minus_t )
                   else
@@ -868,7 +869,7 @@ C Covariance matrix, need more complex sum:
 
                         if (FitSample(j)) then
                            d_minus_t = daten(j) - theo(j) 
-     $                          + ShiftExternal(i)
+     $                          - ShiftExternal(i)
                            j2 = list_covar_inv(j) 
                            if (j2 .gt. 0) then
                               C(l) = C(l) + ScaledTotMatrix(i2,j2)
@@ -953,7 +954,7 @@ C Ready to invert
 
          do l=1,nsys
             if ( Sysform(l) .eq. isNuisance) then
-               rsys_in(l) = - C(l)
+               rsys_in(l) = C(l)
                if (iflag.eq.3) then
                   ersys_in(l) = sqrt(A(l,l))
                endif
@@ -1056,7 +1057,7 @@ C Diagonal part:
             Sum = Sum + ScaledGamma(k,i)*rsys_in(k)
          enddo
 C Chi2 per point:
-         chi2 = (d - t + Sum)**2 * ScaledErrors(i)
+         chi2 = (d - t - Sum)**2 * ScaledErrors(i)
 
 C Sums:
          if ( FitSample(i) ) then
@@ -1078,7 +1079,7 @@ C 1) Pre-compute sums of systematic shifts:
          i = list_covar(i1) 
          sumcov(i1) = Daten(i) - Theo(i)
          do k = 1,NSys
-            SumCov(i1) = SumCov(i1) + ScaledGamma(k,i)*rsys_in(k)
+            SumCov(i1) = SumCov(i1) - ScaledGamma(k,i)*rsys_in(k)
          enddo        
       enddo
 
@@ -1175,7 +1176,7 @@ C------------------------------------------------------------------
          ALPHA_MOD(i) =  1.D0/sqrt(ScaledErrors(i))
          THEO_MOD(i)  = THEO(i)
          do k=1,NSYS
-            THEO_MOD(i) = THEO_MOD(i) - ScaledGamma(k,i)*RSys_in(k)
+            THEO_MOD(i) = THEO_MOD(i) + ScaledGamma(k,i)*RSys_in(k)
          enddo
       enddo
       

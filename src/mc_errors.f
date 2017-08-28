@@ -21,7 +21,7 @@ C To be used as a seed:
       integer isys
 
       integer n0
-      double precision s,voica,dummy_st,sorig
+      double precision s,voica,dummy_st,sorig,syssh
 
 C Single precision here:
       real rndsh,ranflat
@@ -87,7 +87,8 @@ C Store relative alpha:
          else
             s = THEO(n0)
          endif
-         sorig = s
+         sorig = DATEN(n0)
+         syssh = 1
 
          do isys=1,nsys
 
@@ -97,27 +98,23 @@ cv  first for systematic uncert, then for stat.
             if (systype.eq.1) then ! gauss syst
 C ! Introduce asymmetric errors, for Gaussian case only:
                if ( .not. LAsymSyst(isys) ) then
-                  s = s*(1.+ beta(isys,n0) * rand_shift(isys))
+                  syssh = syssh + beta(isys,n0) * rand_shift(isys)
                else
                   if ( rand_shift(isys).gt. 0) then
-                     s = s*(1.+ BetaAsym(isys,1,n0) * rand_shift(isys))
+                  syssh = syssh + BetaAsym(isys,1,n0) * rand_shift(isys)
                   else
-                     s = s*(1.+ BetaAsym(isys,2,n0) * rand_shift(isys))
+                  syssh = syssh + BetaAsym(isys,2,n0) * rand_shift(isys)
                   endif
                endif
                
             elseif (systype.eq.2) then ! uniform
-               s = s*(1. + beta(isys,n0) * r_sh_fl(isys))
-               
+                  syssh = syssh + beta(isys,n0) * r_sh_fl(isys)
             elseif (systype.eq.3) then ! lognormal
                if (beta(isys,n0).ne.0) then
                   lsig=beta(isys,n0) 
                   lmu=1.
                   lrunif=r_sh_fl(isys)
                   s=s*logshift(lmu,lsig,lrunif)
-c                  print*,'log...', n0,isys,
-c     $                 lrunif, beta(isys,n0), 
-c     $                 s,logshift(lmu,lsig,lrunif)
                endif
             endif               ! endif (sys for systematic shifts)
          enddo                  ! end loop over the systematic shifts
@@ -129,7 +126,8 @@ CV now choose sta (advised gauss OR poisson)
          if (statype.eq.1) then ! gauss
 
             alpha(n0) = sorig * alpha_rel ! adjust alpha0, important for theory-like data. 
-            s = s + rndsh * alpha(n0)
+C            s = s + rndsh * alpha(n0)
+            s = (s + rndsh * alpha(n0))*syssh
 
             if (alpha(n0).eq.0) then
                s = 0.1
@@ -211,6 +209,9 @@ C Store uncor in %:
             alpha(n0) = sqrt(euncor_out**2+estat_out**2)
             e_tot(n0) = sqrt(euncor_out**2+estat_out**2+ecor_in**2)
      $           /s*100.0
+
+            s = s * syssh
+
          endif
          
  

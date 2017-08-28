@@ -24,25 +24,29 @@ C---------------------------------------------------------
       include 'endmini.inc'
       include 'for_debug.inc'
       include 'steering.inc'
+      include 'CI.inc'
       
       integer i
 
 C function:
       double precision chi2data_theory
 
+      external simpfcn
+
 C-----------------------------------------------------------------
       
+
 C Store FCN flag in a common block:
       IFlagFCN = IFlag
 
       NparFCN  = npar
 
-C Store params in a common block:
-      do i=1,MNE
-         parminuitsave(i) = parminuit(i)
-      enddo
 
-C Count number of FCN calls:
+      if (lprint) then
+        IfcnCount=IfcnCount+1
+        write(6,*) ' ===========  Calls to fcn= IfcnCount ',IfcnCount
+      endif
+
       if (iflag.eq.3) then
          nfcn3 = nfcn3 + 1
          if (nfcn3.gt.MaxFCN3) then
@@ -54,6 +58,20 @@ C Count number of FCN calls:
          endif
       endif
 
+
+      if(CI_simpfcn_mode) then
+         call simpfcn(g_dummy, chi2out, parminuit, iflag)
+         return
+      end if
+
+
+C Store params in a common block:
+      do i=1,MNE
+         parminuitsave(i) = parminuit(i)
+      enddo
+
+C Count number of FCN calls:
+
 C Store only if IFlag eq 3:
       if (iflag.eq.3) then
          do i=1,MNE
@@ -63,10 +81,6 @@ C !> Also store for each fcn=3 call:
          enddo
       endif
 
-      if (lprint) then
-        IfcnCount=IfcnCount+1
-        write(6,*) ' ===========  Calls to fcn= IfcnCount ',IfcnCount
-      endif
 
       call HF_errlog(12020515,'I: FCN is called')
 
@@ -91,7 +105,6 @@ C   LW: end of CI minuit readout
 *     
       chi2out = chi2data_theory(iflag)
 * 
-      
       return
       end
 
@@ -124,6 +137,7 @@ C--------------------------------------------------------------
       include 'polarity.inc'
       include 'endmini.inc'
       include 'fractal.inc'
+      include 'CI.inc'
 *     ---------------------------------------------------------
 *     declaration related to alphas
 *     for RT code, transfer alpha S
@@ -213,16 +227,18 @@ C--------------------------------------------------------------
       enddo
 
 
+      if (Itheory.eq.3) then
+        Itheory = 0
+      endif
+
+
+      if(CI_simpfcn_mode) goto 99
+
+
       do i=1,ntot
          THEO(i) = 0.d0
          THEO_MOD(i) = 0.d0
       enddo
-
-
-
-      if (Itheory.eq.3) then
-        Itheory = 0
-      endif
 
       if(Itheory.ge.100) then
         auh(1) = parminuitsave(1)
@@ -369,6 +385,10 @@ c             call fillvfngrid
 
       call cpu_time(time1)
 
+
+   99 continue
+
+
 *     ---------------------------------------------------------  	 
 *     Start of loop over data points: 	 
 *     ---------------------------------------------------------
@@ -384,9 +404,9 @@ c             call fillvfngrid
          n0 = n0 + 1
          ndf = ndf + 1
 
+ 100     continue
          
          
- 100  continue
 *     ---------------------------------------------------------
 *     end of data loop
 *     ---------------------------------------------------------

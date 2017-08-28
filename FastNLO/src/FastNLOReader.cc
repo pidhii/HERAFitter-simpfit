@@ -2007,6 +2007,9 @@ double FastNLOReader::CalcAlphas(double Q) {
 
 
 double FastNLOReader::CalcReferenceAlphas() {
+#if __cplusplus >= 201103L
+   using std::isnan;
+#endif
    double mu = 0;
    if (GetIsFlexibleScaleTable()) {
       if (fMuRFunc==kExtern) mu = (*Fct_MuR)(91.,1.)*(fScaleFacMuR+0.1);

@@ -7,6 +7,8 @@
 #include "TGraphAsymmErrors.h"
 #include "PdfTable.h"
 
+using namespace std;
+
 Output::Output(const Char_t* directory) {
 
   fDirectory    = new TString(directory);

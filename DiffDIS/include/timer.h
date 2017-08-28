@@ -14,7 +14,7 @@ using namespace std;
 
 // ooooooooooooooooooooooooooooooooo
 class Timer_t {
-  static const double sec = 1./CLOCKS_PER_SEC;
+  static constexpr double sec = 1./CLOCKS_PER_SEC;
   clock_t M_start;
   
 public:

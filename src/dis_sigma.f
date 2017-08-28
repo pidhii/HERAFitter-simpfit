@@ -408,8 +408,7 @@ C            print*,'CIstudy: Past doCI check. CIindex = ',CIindex
              
             elseif (CIindex.eq.401) then
 C             print*,'CIstudy: Quark form factor implemented.'
-              THEO(idx) = THEO(idx)*(( 1 - 
-     $            (CIvarval)*Q2(i)/6 )**2 )
+              THEO(idx) = THEO(idx)*(( 1 - (CIvarval)*Q2(i)/6 )**2 )
             endif
            endif
          endif

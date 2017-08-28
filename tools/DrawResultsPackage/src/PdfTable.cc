@@ -2,8 +2,10 @@
 #include <fstream>
 #include <iostream>
 #include <math.h>
+
 using std::cout;
 using std::endl;
+using std::ifstream;
 
 PdfTable::PdfTable(TString fName){
   // Initialize vars:

@@ -45,7 +45,7 @@ C-----------------------------------------
 C=========================================================
 C Nothing to do for LHAPDF or Diffractive:
 C
-      if (PDF_DECOMPOSITION.eq.'LHAPDF' 
+      if (PDF_DECOMPOSITION.eq.'LHAPDF'                                 ! false
      $     .or. PDF_DECOMPOSITION.eq.'Diffractive'
      $     .or. PDF_DECOMPOSITION.eq.'QCDNUM_GRID' ) then
          Return
@@ -54,13 +54,13 @@ C
 C==========================================================
 C CTEQ-like parameterisation:
 C
-      if (iparam.eq.171717) then
+      if (iparam.eq.171717) then                                        ! false
          Call SumRulesCTeq
          Return
       endif
 
 C    22 Sep 11, VR, Add AS parametrisation
-      if (iparam.eq.1977) then
+      if (iparam.eq.1977) then                                          ! false
          Call SumRulesAS
          return
       endif
@@ -73,14 +73,11 @@ C
 
 C--------------
 C Valence:
-      if (Index(PDF_DECOMPOSITION,'Dv_Uv').gt.0) then
-
+      if (Index(PDF_DECOMPOSITION,'Dv_Uv').gt.0) then                   ! true
 C**********************************************************
 C*     -- sum rule : D - Dbar = 1   :  gives ADval
 C*
-
-         if (PDFStyle.eq.'CTEQHERA') then
-
+         if (PDFStyle.eq.'CTEQHERA') then                               ! false
 
 C Counting sum-rule for uv:
             if (ctuval(1).eq.0) then
@@ -89,7 +86,6 @@ C Counting sum-rule for uv:
               uv_sum = ctuval(1)*SumRuleCTEQ(-1,ctuval)/2
            endif
 
-
 C Counting sum-rule for dv:
            if (ctdval(1).eq.0) then
               ctdval(1) = 1.0D0 / SumRuleCTEQ(-1,ctdval)
@@ -97,7 +93,6 @@ C Counting sum-rule for dv:
               dv_sum = ctdval(1)*SumRuleCTEQ(-1,ctdval)
            endif
 C Also integrate for momentum sum rules
-
 
             tuv =  ctuval(1)*SumRuleCTEQ(0,ctuval)
             tdv =  ctdval(1)*SumRuleCTEQ(0,ctdval) 
@@ -125,7 +120,6 @@ C Also integrate momenta, for momentum sum rule:
 cv         print*,'sumrules......', tuv, tdv
 
       else
-
          print *,'Un-implemented valence decomposition '//PDF_DECOMPOSITION
          print *,'Stop in sumrules'
          call HF_STOP
@@ -209,8 +203,7 @@ C     propagate the normalizations and other parameters to
 C     standard parametrisation
 
 
-      if (NCHEBGLU.eq.0) then         
-      if (lprint) then
+      if (lprint .and. NCHEBGLU .eq. 0) then
          if  (PDFStyle.eq.'CTEQHERA') then
             print '(''uv:'',11F10.4)',(ctuval(i),i=1,6)
             print '(''dv:'',11F10.4)',(ctdval(i),i=1,6)
@@ -227,7 +220,7 @@ C     standard parametrisation
      $           ,uv_sum, dv_sum, p_sum
          endif
       endif
-      endif
+
       
  999  continue
       return

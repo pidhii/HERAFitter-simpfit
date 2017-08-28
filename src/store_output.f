@@ -276,6 +276,7 @@ C--------------------------------------------------
       INCLUDE 'indata.inc'
       include 'systematics.inc'
       INCLUDE 'theo.inc'
+      include "CI.inc"
       
       integer i,j,index,PlotVarColIdx,PreviousPlots
       double precision PlotVar,PullVar
@@ -379,7 +380,15 @@ C-------------------------------------------------------------
       character*32 parname
       character*32 fname
 
+      external CI_calc_derivatives
+      external CI_scan_parerrors
+
 C-------------------------------------------------------------
+      PRINT *, " ---<=={ checking errors (VI) (write_pars) }==>--- "
+      call CI_scan_parerrors
+
+
+
       if (ifcn3.lt.10) then
 c RP         write (fname,'(''output/parsout_'',i1)') ifcn3
          write (fname,'( a,''/parsout_'',i1)') TRIM(OutDirName),ifcn3
@@ -390,6 +399,9 @@ c RP         write (fname,'(''output/parsout_'',i1)') ifcn3
       elseif (ifcn3.lt.10000) then
          write (fname,'( a,''/parsout_'',i4)') TRIM(OutDirName),ifcn3
       endif
+
+      print *, "ifcn3:", ifcn3
+      print *, "fname:", fname
 
       open (71,file=fname,status='unknown')
       do i=1,mne
@@ -403,16 +415,31 @@ c RP         write (fname,'(''output/parsout_'',i1)') ifcn3
          endif
       enddo
       
+      if(ifcn3 .eq. 1 .and. .not. CIDoSimpFit) then
+         open(103, file = "CISimpFitData.txt", status = 'unknown')
+         do i=1,mne
+            call mnpout(i,parname,val,err,xlo,xhi,ipar)
+            if (Trim(parname).ne.'undefined') then
+               write (103,72) i, Trim(parname), val,err
+            endif
+         enddo
+      endif
+
+      
  72   format (I5,'   ','''',A,'''',4F12.6)
       close(71)
       
       if(doCI) then
         write (fname,'( a,''/CIout.txt'')') TRIM(OutDirName)
         open (101,file=fname,status='unknown')
+        open (103, file = "CIval_in.txt", status = 'unknown')
         
         call mnpout(idxCIval,parname,val,err,xlo,xhi,ipar)
         if (xlo.eq.0.and.xhi.eq.0) then
           write (101,102) idxCIval, Trim(parname), val,err
+          if(.not.CIDoSimpFit) then
+            write (103,102) idxCIval, Trim(parname), val,err
+          end if
 C          if (val.ge.0) then
 C            write (101,102) idxCIval, Trim(parname), sqrt(val),err
 C          else
@@ -420,6 +447,9 @@ C            write (101,102) idxCIval, Trim(parname), -sqrt(-val),err
 C          endif
         else
           write (101,102) idxCIval, Trim(parname), val,err,xlo,xhi
+          if(.not.CIDoSimpFit) then
+            write (103,102) idxCIval, Trim(parname), val,err,xlo,xhi
+          end if
 C          if (val.ge.0) then
 C            write (101,102) idxCIval, Trim(parname), sqrt(val),err,xlo,xhi
 C          else
@@ -429,10 +459,12 @@ C          endif
         
  102   format (I5,'   ','''',A,'''','  ',4ES12.5)
         close(101)
+        close(103)
       endif
 
 C-------------------------------------------------------------
       end
+
 
 C-------------------------------------------------------------------
 C

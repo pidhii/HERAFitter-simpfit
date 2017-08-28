@@ -22,13 +22,11 @@ C Read various namelists:
 
       if(Itheory.lt.100) then
          call read_lhapdfnml    ! read lhapdf 
-C
+
 C Decode PDF type:
-C      
          call SetPDFType
-C
+
 C Decode PDF style:
-C      
          call SetPDFStyle
       endif   ! Itheory < 100
 
@@ -49,16 +47,14 @@ c WS 2013-01-07 always read CSOffsetNML
       ! endif
 
       if(Itheory.lt.100) then
-C
 C Also read extra minuit parameters:
-C      
          call readextraparam
       endif ! Itheory > 100
 
 C 07/12/2011 Dipole ===>
       call SetDipoleType
 
-C 11/06/2014  LW CIanalyses
+C 11/06/2014  LW CIanalyses                                               <<------------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       call read_ContactInteractions
 
 C 09/01/2013 Check consistency of the input
@@ -167,7 +163,7 @@ C  Fast applgrid:
 C MC Errors defaults:
       lRAND = .false.
       lRandData = .true.
-      iSEEDmc = 0
+      ISeedMC = 0
       STATYPE = 1
       SYSTYPE = 1
 
@@ -565,7 +561,7 @@ C-------------------------------------------------------
       implicit none
       include 'steering.inc'
 C (Optional) MC method namelist
-      namelist/MCErrors/LRand, ISeeDMC, StaType, SysType, LRandData 
+      namelist/MCErrors/LRand, ISeedMC, StaType, SysType, LRandData 
 C------------------------------------------------------
 C
 C  Read the MC method namelist:
@@ -1508,8 +1504,7 @@ C
       do while (ii.gt.0) 
          if ( SourceName(ii+1:ii+1) .eq.'A' ) then
             SysScalingType(nsys) = isNoRescale
-            Call HF_errlog(12090001,
-     $           'I: Some systematic sources are additive')
+              Call HF_errlog(12090001, 'I: Some systematic sources are additive')
          elseif ( SourceName(ii+1:ii+1) .eq.'M' ) then
             SysScalingType(nsys) = isLinear
          elseif ( SourceName(ii+1:ii+1) .eq.'P' ) then
@@ -1523,8 +1518,7 @@ C
          elseif ( SourceName(ii+1:ii+1) .eq.'E' ) then
             SysForm(nsys) = isExternal
          else
-            print *,'WARRNING: Unknown systematics modifier ',
-     $            SourceName(ii+1:)
+              print *,'WARRNING: Unknown systematics modifier ', SourceName(ii+1:)
             Call HF_errlog(12090002,
      $'W:WARNING: wrong form or bias correction for a systematic source')
          endif
@@ -1541,46 +1535,56 @@ C Register external systematics:
       end
 
 
-C
+C<<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>>
 !> 11/06/2014 LW - read Contact Interactions parameters
-C--------------------------------------------------------
-      subroutine read_ContactInteractions
 
+      subroutine read_ContactInteractions
       implicit none
       include 'steering.inc'
+      include 'CI.inc'
 
 C---------------------------------------------
 C CI namelist
 C      namelist/CIstudy/CIindex,idxCIval,CItype,CIname,
 C    $   CIvarval,CIvarstep,CIvarmin,CIvarmax,doCI
-      namelist/CIstudy/doCI,CItype,CIvarval,CIvarstep
-C-------------------------------------------------      
-C
+      namelist/CIstudy/ doCI, CItype, CIvarval, CIvarstep,
+     &                  CIDoSimpFit, CISimpFitStep
+
 C  Read the CI namelist:
-C
       open (51,file='steering.txt',status='old')
       read (51,NML=CIstudy,ERR=134,end=131)
  
  131  continue
       close (51)
 
-      if (doCI) then
+      CI_simpfcn_mode       = .false.
+      CI_extra_reading_done = .false.
 
+      if (doCI) then
         CIindex = 0
         idxCIval = 0
 
         if (CItype.eq.'FormFactor') then
           CIindex = 401
           CIname = 'CI_Rq'
-          CIvarval = CIvarval * CIvarval
           CIvarmin = 0.
           CIvarmax = 0.
+        endif
+
+        if(CIdoSimpFit) then
+          if(TRIM(CIsimpFitStep) .eq. 'CalcDerivatives') then
+            
+          else if(TRIM(CIsimpFitStep) .eq. 'SimpFit') then
+            CI_simpfcn_mode = .true.
+          else
+            print *, "Error: not supported CISimpFitStep value: ", 
+     $                TRIM(CIsimpFitStep)
+          endif
         endif
 
         if (LDebug) then
           print CIstudy
         endif
-
       endif
 
       return
@@ -1589,6 +1593,8 @@ C-----------------
       print '(''Error reading namelist &CIstudy, STOP'')'
       call HF_stop
       end
+C<<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>>
+
 
  !>
  !>  Check consistency of the data input, abort for unsupported combinations

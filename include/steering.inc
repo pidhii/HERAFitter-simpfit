@@ -167,13 +167,15 @@ C
       common/COutDirName/OutDirName, LHAPDF6OutDir
 
 
+c<<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>>
 C     11/06/2014 LW
 C     Namelist for the CI analyses
 
-      logical doCI
-      character*32 CItype, CIname
+      logical doCI, CIDoSimpFit
+      character*32 CItype, CIname, CISimpFitStep
       integer CIindex, idxCIval
       double precision CIvarval, CIvarstep, CIvarmin, CIvarmax
-      common/CIvars/CIindex,idxCIval,CItype,CIname,
-     $   CIvarval,CIvarstep,CIvarmin,CIvarmax,doCI
 
+      common/CIvars/ CIindex, idxCIval, CItype, CIname, CIvarval, CIvarstep, CIvarmin, CIvarmax, doCI,
+     &               CIDoSimpFit, CISimpFitStep     
+c<<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>>
