@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/1210/trunk/theoryfiles/atlas/Jets2010/R06
+END
+eta4.root
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/basic/h1fitter/!svn/ver/655/trunk/theoryfiles/atlas/Jets2010/R06/eta4.root
+END
+eta5.root
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/basic/h1fitter/!svn/ver/655/trunk/theoryfiles/atlas/Jets2010/R06/eta5.root
+END
+eta6.root
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/basic/h1fitter/!svn/ver/655/trunk/theoryfiles/atlas/Jets2010/R06/eta6.root
+END
+eta7.root
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/basic/h1fitter/!svn/ver/655/trunk/theoryfiles/atlas/Jets2010/R06/eta7.root
+END
+eta8.root
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/basic/h1fitter/!svn/ver/655/trunk/theoryfiles/atlas/Jets2010/R06/eta8.root
+END
+KF-eta1.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/basic/h1fitter/!svn/ver/1210/trunk/theoryfiles/atlas/Jets2010/R06/KF-eta1.txt
+END
+KF-eta2.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/basic/h1fitter/!svn/ver/1210/trunk/theoryfiles/atlas/Jets2010/R06/KF-eta2.txt
+END
+KF-eta3.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/basic/h1fitter/!svn/ver/1210/trunk/theoryfiles/atlas/Jets2010/R06/KF-eta3.txt
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/basic/h1fitter/!svn/ver/1207/trunk/theoryfiles/atlas/Jets2010/R06/Makefile.am
+END
+KF-eta4.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/basic/h1fitter/!svn/ver/1210/trunk/theoryfiles/atlas/Jets2010/R06/KF-eta4.txt
+END
+KF-eta5.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/basic/h1fitter/!svn/ver/1210/trunk/theoryfiles/atlas/Jets2010/R06/KF-eta5.txt
+END
+KF-eta6.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/basic/h1fitter/!svn/ver/1210/trunk/theoryfiles/atlas/Jets2010/R06/KF-eta6.txt
+END
+eta1.root
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/basic/h1fitter/!svn/ver/655/trunk/theoryfiles/atlas/Jets2010/R06/eta1.root
+END
+KF-eta7.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/basic/h1fitter/!svn/ver/1210/trunk/theoryfiles/atlas/Jets2010/R06/KF-eta7.txt
+END
+eta2.root
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/basic/h1fitter/!svn/ver/655/trunk/theoryfiles/atlas/Jets2010/R06/eta2.root
+END
+eta3.root
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/basic/h1fitter/!svn/ver/655/trunk/theoryfiles/atlas/Jets2010/R06/eta3.root
+END

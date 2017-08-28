@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/basic/h1fitter/!svn/ver/1162/trunk/NNPDF/src
+END
+pdfs.cc
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/788/trunk/NNPDF/src/pdfs.cc
+END
+nnpdfrw.cc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/1162/trunk/NNPDF/src/nnpdfrw.cc
+END
+utils.cc
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/788/trunk/NNPDF/src/utils.cc
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/564/trunk/NNPDF/src/Makefile.am
+END
+nnpdf_dum.f
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/791/trunk/NNPDF/src/nnpdf_dum.f
+END

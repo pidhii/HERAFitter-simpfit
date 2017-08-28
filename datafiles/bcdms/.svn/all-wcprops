@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/bcdms
+END
+BCDMS_F2p.280gev.dat
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/basic/h1fitter/!svn/ver/640/trunk/datafiles/bcdms/BCDMS_F2p.280gev.dat
+END
+BCDMS_F2p.100gev.dat
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/bcdms/BCDMS_F2p.100gev.dat
+END
+BCDMS_F2p.200gev.dat
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/bcdms/BCDMS_F2p.200gev.dat
+END
+BCDMS_F2p.120gev.dat
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/bcdms/BCDMS_F2p.120gev.dat
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/1207/trunk/datafiles/bcdms/Makefile.am
+END

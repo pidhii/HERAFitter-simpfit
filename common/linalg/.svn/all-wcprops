@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/basic/h1fitter/!svn/ver/1207/trunk/common/linalg
+END
+tnt_matrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1043/trunk/common/linalg/tnt_matrix.h
+END
+tnt_linalg.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1043/trunk/common/linalg/tnt_linalg.h
+END
+CovMatrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/basic/h1fitter/!svn/ver/1043/trunk/common/linalg/CovMatrix.h
+END
+tnt_math_utils.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/1043/trunk/common/linalg/tnt_math_utils.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/basic/h1fitter/!svn/ver/1207/trunk/common/linalg/Makefile.am
+END
+tnt_subscript.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/basic/h1fitter/!svn/ver/1043/trunk/common/linalg/tnt_subscript.h
+END
+tnt_vector.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1043/trunk/common/linalg/tnt_vector.h
+END

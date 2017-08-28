@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/basic/h1fitter/!svn/ver/1361/trunk/datafiles/hera
+END
+ZEUS_dijet_98-07.dat
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/hera/ZEUS_dijet_98-07.dat
+END
+H1ZEUS_NC_e+p_HERA1.0.dat
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/basic/h1fitter/!svn/ver/1361/trunk/datafiles/hera/H1ZEUS_NC_e+p_HERA1.0.dat
+END
+H1ZEUS_NC_e-p_HERA1.0.dat
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/basic/h1fitter/!svn/ver/1361/trunk/datafiles/hera/H1ZEUS_NC_e-p_HERA1.0.dat
+END
+ZEUS_InclJets_HighQ2_98-00.dat
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/hera/ZEUS_InclJets_HighQ2_98-00.dat
+END
+H1_InclJets_LowQ2_99-00.dat
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/hera/H1_InclJets_LowQ2_99-00.dat
+END
+ZEUS_LRG_98-00.dat
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/hera/ZEUS_LRG_98-00.dat
+END
+H1_NormInclJets_HighQ2_99-07___H1_NormInclJets_HighQ2_99-07.corr
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/basic/h1fitter/!svn/ver/1122/trunk/datafiles/hera/H1_NormInclJets_HighQ2_99-07___H1_NormInclJets_HighQ2_99-07.corr
+END
+H1ZEUS_Charm_combined.dat
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/basic/h1fitter/!svn/ver/1303/trunk/datafiles/hera/H1ZEUS_Charm_combined.dat
+END
+ZEUS_InclJets_HighQ2_96-97.dat
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/hera/ZEUS_InclJets_HighQ2_96-97.dat
+END
+H1_NormInclJets_HighQ2_99-00.dat
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/hera/H1_NormInclJets_HighQ2_99-00.dat
+END
+ZEUS_LPS_98-00.dat
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/hera/ZEUS_LPS_98-00.dat
+END
+H1ZEUS_CC_e+p_HERA1.0.dat
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/basic/h1fitter/!svn/ver/1361/trunk/datafiles/hera/H1ZEUS_CC_e+p_HERA1.0.dat
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1207/trunk/datafiles/hera/Makefile.am
+END
+H1_InclJets_HighQ2_99-00.dat
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/hera/H1_InclJets_HighQ2_99-00.dat
+END
+H1ZEUS_CC_e-p_HERA1.0.dat
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/basic/h1fitter/!svn/ver/1361/trunk/datafiles/hera/H1ZEUS_CC_e-p_HERA1.0.dat
+END
+H1_NormInclJets_HighQ2_99-07.dat
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/hera/H1_NormInclJets_HighQ2_99-07.dat
+END
+H1_LowEp_460_575.dat
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/hera/H1_LowEp_460_575.dat
+END

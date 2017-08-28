@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/1441/trunk/datafiles/tevatron/wzinclusive
+END
+CDF_Z_Boson_Rapidity.dat
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/basic/h1fitter/!svn/ver/1441/trunk/datafiles/tevatron/wzinclusive/CDF_Z_Boson_Rapidity.dat
+END
+CDF_W_asymmetry.dat
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/basic/h1fitter/!svn/ver/1441/trunk/datafiles/tevatron/wzinclusive/CDF_W_asymmetry.dat
+END
+D0_Wmu_pt25_asymmetry.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1441/trunk/datafiles/tevatron/wzinclusive/D0_Wmu_pt25_asymmetry.dat
+END
+D0_W_asymmetry.corr
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/basic/h1fitter/!svn/ver/1375/trunk/datafiles/tevatron/wzinclusive/D0_W_asymmetry.corr
+END
+D0_Wmu_pt35_asymmetry.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1441/trunk/datafiles/tevatron/wzinclusive/D0_Wmu_pt35_asymmetry.dat
+END
+D0_Z_Boson_Rapidity.dat
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/basic/h1fitter/!svn/ver/1441/trunk/datafiles/tevatron/wzinclusive/D0_Z_Boson_Rapidity.dat
+END
+D0_W_asymmetry.dat
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/basic/h1fitter/!svn/ver/1378/trunk/datafiles/tevatron/wzinclusive/D0_W_asymmetry.dat
+END

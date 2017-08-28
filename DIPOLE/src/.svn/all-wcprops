@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/basic/h1fitter/!svn/ver/1207/trunk/DIPOLE/src
+END
+fit_simps.f
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/421/trunk/DIPOLE/src/fit_simps.f
+END
+xsect_dipole_proton.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/413/trunk/DIPOLE/src/xsect_dipole_proton.c
+END
+fit_sf_bes.f
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/817/trunk/DIPOLE/src/fit_sf_bes.f
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/1207/trunk/DIPOLE/src/Makefile.am
+END
+xsect_dipole_proton.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/413/trunk/DIPOLE/src/xsect_dipole_proton.h
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/basic/h1fitter/!svn/ver/1250/trunk/m4
+END
+ax_compare_version.m4
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/1250/trunk/m4/ax_compare_version.m4
+END
+ax_openmp.m4
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/basic/h1fitter/!svn/ver/969/trunk/m4/ax_openmp.m4
+END

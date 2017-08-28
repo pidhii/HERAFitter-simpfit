@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010
+END
+inclusivejets_R04_00_03.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R04_00_03.dat
+END
+inclusivejets_R06_00_03.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R06_00_03.dat
+END
+inclusivejets_R04_12_21.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R04_12_21.dat
+END
+inclusivejets_R06_12_21.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R06_12_21.dat
+END
+inclusivejets_R04_08_12.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R04_08_12.dat
+END
+inclusivejets_R04_03_08.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R04_03_08.dat
+END
+inclusivejets_R06_08_12.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R06_08_12.dat
+END
+inclusivejets_R06_03_08.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R06_03_08.dat
+END
+inclusivejets_R04_21_28.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R04_21_28.dat
+END
+inclusivejets_R06_21_28.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R06_21_28.dat
+END
+inclusivejets_R04_36_44.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R04_36_44.dat
+END
+inclusivejets_R06_36_44.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R06_36_44.dat
+END
+inclusivejets_R04_28_36.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R04_28_36.dat
+END
+inclusivejets_R06_28_36.dat
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/atlas/Jets2010/inclusivejets_R06_28_36.dat
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/basic/h1fitter/!svn/ver/1243/trunk/datafiles/lhc/atlas/Jets2010/Makefile.am
+END

@@ -1,0 +1,311 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/basic/h1fitter/!svn/ver/1207/trunk/DiffDIS/src
+END
+emsg.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/emsg.cc
+END
+FFstrFns.cc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/FFstrFns.cc
+END
+tblint.cc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/tblint.cc
+END
+dilog.cc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/dilog.cc
+END
+LambertW1.cc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/LambertW1.cc
+END
+qgrid_base.cc
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/qgrid_base.cc
+END
+ifun.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/ifun.cc
+END
+DDIS.coca
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/DDIS.coca
+END
+coeff2.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/coeff2.f
+END
+FASTLI2.f
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/FASTLI2.f
+END
+coeff3.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/coeff3.f
+END
+Coca.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/Coca.cc
+END
+FASTLI3.f
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/FASTLI3.f
+END
+tblipol.cc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/tblipol.cc
+END
+xgrid_base.cc
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/xgrid_base.cc
+END
+aqcd.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/aqcd.cc
+END
+autoscan.log
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/autoscan.log
+END
+FTN_sock_DDIS.cc
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/basic/h1fitter/!svn/ver/1044/trunk/DiffDIS/src/FTN_sock_DDIS.cc
+END
+grvpiho.f
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/grvpiho.f
+END
+cheavy.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/cheavy.f
+END
+DataTable.cc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/DataTable.cc
+END
+gauss.cc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/gauss.cc
+END
+grvpilo.f
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/grvpilo.f
+END
+ddis.cc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/1044/trunk/DiffDIS/src/ddis.cc
+END
+MDipol.cc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/MDipol.cc
+END
+TRc.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/TRc.c
+END
+hdpdf.cc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/hdpdf.cc
+END
+sfunws.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/sfunws.f
+END
+defparams.inc
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/defparams.inc
+END
+fileut.cc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/fileut.cc
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/CMakeLists.txt
+END
+TRc.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/TRc.h
+END
+xdr.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/xdr.c
+END
+JScif.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/JScif.c
+END
+qcdpars.cc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/qcdpars.cc
+END
+Param.cc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/Param.cc
+END
+JScif.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/JScif.h
+END
+pdf_base.cc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/pdf_base.cc
+END
+GetPdf.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/572/trunk/DiffDIS/src/GetPdf.f
+END
+trs.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/trs.h
+END
+jacksmith.f
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/jacksmith.f
+END
+gZDPDF.cc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/gZDPDF.cc
+END
+WATE96.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/WATE96.f
+END
+WGPLG.f
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/WGPLG.f
+END
+js_fns.f_old
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/js_fns.f_old
+END
+js_fns.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/js_fns.f
+END
+FASTS12.f
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/FASTS12.f
+END
+grvpi.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/grvpi.c
+END
+GrdHeader.cc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/GrdHeader.cc
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1207/trunk/DiffDIS/src/Makefile.am
+END
+TR_alpha.f
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/src/TR_alpha.f
+END

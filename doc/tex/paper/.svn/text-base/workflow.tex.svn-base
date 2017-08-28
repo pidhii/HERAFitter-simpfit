@@ -1,0 +1,58 @@
+\begin{figure}[!ht]
+  \begin{tikzpicture}[node distance=1cm, auto,>=latex', thick]
+%      \path[->] node[draw, text width=2cm, align=center] at (0,0) (init) {\bf Initialization};
+      \path[->] node[draw, text width=2cm, text centered] at (0,0) (init) {\bf Initialisation};
+      \path[->] node[draw, below left=0.3cm and -0.7cm of init, text width=3.4cm] (data) 
+                    {\begin{center} \vspace{-0.3cm}{\bf Input Data} 
+		      \\ {\color{blue}\small Data Type} 
+		     \end{center} 
+		     {\scriptsize 
+		     \begin{itemize}
+                      \vspace{-0.3cm}
+		      \item Collider $ep$, Fixed Target
+		      \item Collider $pp, p\bar p$
+		     \end{itemize}}
+		     } (init) edge (data);
+      \path[->] node[draw, below right=0.3cm and -0.7cm of init, text width=3.55cm] (theory) 
+                    {\begin{center} \vspace{-0.3cm}{\bf Theory Predictions} 
+		      \\ {\color{red}\small Factorisation Theorem} 
+		     \end{center} 
+		     {\scriptsize 
+		     \begin{itemize}
+                      \vspace{-0.3cm}
+		      \item PDF Parametrisation
+              \item QCD Evolution:  \\
+                   DGLAP (\qcdnum), non-DGLAP (CCFM, dipole)
+		      \item Cross Section Calculation
+		     \end{itemize}}
+		     } (init) edge (theory);
+      \path[->] node[draw, below right=1.0cm and -1.7cm of data, text width=4cm] (minuit) 
+                    {\begin{center} \vspace{-0.1cm}{\bf QCD analysis} 
+                      \vspace{-0.2cm}
+		     \end{center} 
+		     {\color{blue}\small \ Treatment of the Uncertainties} 
+		     {\scriptsize 
+                      \vspace{-0.1cm}
+		     \begin{itemize}
+             \item Fast $\chi^2$ Computation 
+             \item Minimisation (MINUIT)
+		     \end{itemize}}
+		     } (data) edge (minuit)
+		     (theory) edge (minuit)
+		     (data) ++ (1.6,0) edge [<->,double equal sign distance] ++(1.36,0) (theory);
+      \path[->] node[draw, below =0.4cm  of minuit, text width=3.5cm] (res) 
+                    {\begin{center} \vspace{-0.3cm}{\bf Results} 
+		     \end{center} 
+		     {\scriptsize 
+		     \begin{itemize}
+                      \vspace{-0.3cm}
+		      \item PDFs, \lhapdf Grids
+		      \item \as, $m_C$, \dots
+		      \item Data vs Predictions
+		      \item \(\chi^2\), Pulls, Shifts
+		     \end{itemize}}
+		     } (minuit) edge (res);
+  \end{tikzpicture}
+  \caption{Schematic structure of the \fitter program.} 
+  \label{fig:flow}
+\end{figure}

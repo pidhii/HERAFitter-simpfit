@@ -1,0 +1,45 @@
+*
+* The data are taken from:
+*
+* "Measurement of the Muon Charge Asymmetry in Inclusive WProduction in pp Collisions at p s = 7 TeV"
+*  By CMS Collaboration 2011/08/25
+*  CMS PAS EWK-11-005
+*
+*
+&Data
+   Name = 'CMS W muon asymmetry'
+ ! Reaction  = 'CC pp'
+
+ ! Description of the data table
+   NDATA = 11 
+   NColumn = 7 
+   ColumnType = 2*'Bin','Sigma',4*'Error'  ! 2 bins, Asymmetry, 2 errors
+   ColumnName = 'eta1','eta2','Asymmetry','stat',3*'uncor'
+ ! ColumnName = 'eta1','eta2','Asymmetry','stat','cormuBk','cormuRat', 'cormuScale'
+
+   NInfo   = 5
+   DataInfo = 7000.,  1., 25., 0., 100000
+   CInfo    = 'sqrt(S)', 'asymmetry', 'pte cut', 'ptnu cut', 'theoryunit'
+   
+   IndexDataset = 240
+
+   Reaction  = 'CC pp'
+   NKfactor = 0
+   TheoryType  = 'applgrid', 'applgrid'   
+   TheoryInfoFile = 'theoryfiles/cms/EWK-11-005/Wplus_eta4_muon.root',
+                    'theoryfiles/cms/EWK-11-005/Wminus_eta3_muon.root'
+
+   Percent   = False, False, False, False   ! For asymmetry: absolute errors
+
+&End
+0.0  0.2  0.147 0.0032 0.0022 0.0025 0.0025
+0.2  0.4  0.153 0.0033 0.0023 0.0026 0.0025
+0.4  0.6  0.155 0.0032 0.0025 0.0025 0.0025
+0.6  0.8  0.165 0.0032 0.0028 0.0026 0.0025
+0.8  1.0  0.179 0.0034 0.0033 0.0029 0.0025
+1.0  1.2  0.193 0.0034 0.0037 0.0030 0.0025
+1.2  1.4  0.202 0.0033 0.0042 0.0032 0.0025
+1.4  1.6  0.223 0.0034 0.0047 0.0033 0.0025
+1.6  1.85 0.237 0.0031 0.0049 0.0033 0.0025
+1.85 2.1  0.249 0.0032 0.0053 0.0039 0.0025
+2.1  2.4  0.254 0.0035 0.0058 0.0110 0.0085

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1356/trunk/datafiles/lhc/atlas/WZ2010
+END
+WM_applgrid_nnlo.dat
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/basic/h1fitter/!svn/ver/1356/trunk/datafiles/lhc/atlas/WZ2010/WM_applgrid_nnlo.dat
+END
+WP_applgrid_nnlo.dat
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/basic/h1fitter/!svn/ver/1356/trunk/datafiles/lhc/atlas/WZ2010/WP_applgrid_nnlo.dat
+END
+Z0_applgrid_nnlo.dat
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/basic/h1fitter/!svn/ver/1356/trunk/datafiles/lhc/atlas/WZ2010/Z0_applgrid_nnlo.dat
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/basic/h1fitter/!svn/ver/1243/trunk/datafiles/lhc/atlas/WZ2010/Makefile.am
+END

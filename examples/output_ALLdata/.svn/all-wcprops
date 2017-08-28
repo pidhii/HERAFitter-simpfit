@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata
+END
+Results.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata/Results.txt
+END
+fittedresults.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata/fittedresults.txt
+END
+pdfs_q2val_01.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata/pdfs_q2val_01.txt
+END
+pdfs_q2val_02.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata/pdfs_q2val_02.txt
+END
+pdfs_q2val_03.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata/pdfs_q2val_03.txt
+END
+pdfs_q2val_04.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata/pdfs_q2val_04.txt
+END
+pdfs_q2val_05.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata/pdfs_q2val_05.txt
+END
+pdfs_q2val_06.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata/pdfs_q2val_06.txt
+END
+lhapdf.block.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata/lhapdf.block.txt
+END
+minuit.out.txt
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata/minuit.out.txt
+END

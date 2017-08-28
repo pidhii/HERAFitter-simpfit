@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/basic/h1fitter/!svn/ver/1145/trunk/ACOT/src
+END
+fgen122qcdnum.f
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/878/trunk/ACOT/src/fgen122qcdnum.f
+END
+ingo.f
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/1145/trunk/ACOT/src/ingo.f
+END
+cc116.f
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/675/trunk/ACOT/src/cc116.f
+END
+alphas70.f
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/575/trunk/ACOT/src/alphas70.f
+END
+c2terms.f
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/835/trunk/ACOT/src/c2terms.f
+END
+utilities113.f
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/463/trunk/ACOT/src/utilities113.f
+END
+qcdnumPDF.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/835/trunk/ACOT/src/qcdnumPDF.f
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/1098/trunk/ACOT/src/Makefile.am
+END
+sf_acot_wrap.f
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1087/trunk/ACOT/src/sf_acot_wrap.f
+END
+unified121.f
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/835/trunk/ACOT/src/unified121.f
+END
+dinteg.f
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/835/trunk/ACOT/src/dinteg.f
+END
+ingoUtil.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/1145/trunk/ACOT/src/ingoUtil.f
+END
+tot130.f
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/835/trunk/ACOT/src/tot130.f
+END

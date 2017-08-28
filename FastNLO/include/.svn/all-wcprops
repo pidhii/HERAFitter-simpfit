@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/1207/trunk/FastNLO/include
+END
+FastNLOReader.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/905/trunk/FastNLO/include/FastNLOReader.h
+END
+speaker.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/883/trunk/FastNLO/include/speaker.h
+END
+FastNLOBlockB.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/883/trunk/FastNLO/include/FastNLOBlockB.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/1207/trunk/FastNLO/include/Makefile.am
+END
+FastNLOHeraFitter.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/basic/h1fitter/!svn/ver/883/trunk/FastNLO/include/FastNLOHeraFitter.h
+END
+FastNLOInterface.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/basic/h1fitter/!svn/ver/905/trunk/FastNLO/include/FastNLOInterface.h
+END

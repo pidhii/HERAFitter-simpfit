@@ -1,0 +1,48 @@
+!
+! The data are taken from: arXiv:1309.2591
+!
+! Measurement of the muon charge asymmetry in
+! {\bm{$p\overline{p} \rightarrow W + X \rightarrow \mu\nu + X$}
+!
+! By D0 Collaboration. December 2013
+!
+!
+&Data
+   Name = 'D0 W->mu nu lepton asymmetry ptl > 35 GeV'
+   Reaction  = 'CC ppbar'
+
+   NDATA = 10
+   NColumn = 11
+   ColumnType = 2*'Bin','Sigma',8*'Error'
+   ColumnName = 'eta1','eta2','sigma','stat const',
+              'D0_WMUA_EWbkg:A','D0_WMUA_MJbkg:A','D0_WMUA_charge_misid:A','D0_WMUA_rel_charge_efficiency:A','D0_WMUA_magnet_pol_weighting:A','D0_WMUA_momentum_met_resolution:A','D0_WMUA_trigger_isolation:A'
+   NInfo   = 2
+   CInfo    = 'theoryunit','ppbar'
+   DataInfo = 1.,1.
+   IndexDataset = 88
+
+  TheoryType     = 'expression'
+  TermName = 'A1', 'A2'
+  TermType = 'applgrid','applgrid'
+  TermSource = 'theoryfiles/tevatron/wzinclusive/grid-40-6-15-3-Wplus_wly_pt35.root', 'theoryfiles/tevatron/wzinclusive/grid-40-6-15-3-Wminus_wly_pt35.root'
+  TheorExpr= '100*(A1-A2)/(A1+A2)'
+  Percent   = 8*false
+&End
+&PlotDesc
+    PlotN = 1
+    PlotDefColumn = 'eta2'
+    PlotDefValue = 0., 5.
+    PlotOptions(1)  = 'Experiment:D0@ExtraLabel:p#bar{p} #rightarrow W #rightarrow #mu#nu; #sqrt{s} = 1.96 TeV; #int L = 7.3 fb^{-1}@Title: p_{T}^{#mu} > 35 GeV @XTitle: |#eta_{#mu}| @YTitle: A_{#eta_{#mu}} [%] '
+!@YminR:0.61@YmaxR:1.39'
+&End
+*eta1   eta2     sigma	stat	EWbkg	MJbkg	charge_misid	rel_charge_efficiency	magnet_pol_weighting	momentum_met_resolution trigger_isolation
+0.0	0.2	2.03  	0.27	0.004	0.010	0.002		0.012			0.010			0.132			0.04
+0.2	0.4	5.01  	0.29	0.008	0.034	0.007		0.028			0.008			0.168			0.11
+0.4	0.6	7.71  	0.28	0.009	0.044	0.010		0.055			0.005			0.402			0.09
+0.6	0.8	11.34 	0.29	0.039	0.062	0.018		0.084			0.013			0.314			0.23
+0.8	1.0	12.32 	0.29	0.033	0.059	0.014		0.118			0.010			0.237			0.04
+1.0	1.2	15.84 	0.26	0.045	0.079	0.017		0.093			0.007			0.614			0.29
+1.2	1.4	18.94 	0.21	0.074	0.092	0.012		0.103			0.005			0.410			0.29
+1.4	1.6	20.92 	0.25	0.077	0.101	0.018		0.146			0.008			0.402			0.21
+1.6	1.8	20.71 	1.02	0.067	0.089	0.133		0.203			0.044			0.534			0.54
+1.8	2.0	20.83 	1.48	0.085	0.078	0.167		0.418			0.041			1.408			0.04

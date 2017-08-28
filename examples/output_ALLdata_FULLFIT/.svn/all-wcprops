@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata_FULLFIT
+END
+Results.txt
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata_FULLFIT/Results.txt
+END
+fittedresults.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata_FULLFIT/fittedresults.txt
+END
+pdfs_q2val_01.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata_FULLFIT/pdfs_q2val_01.txt
+END
+pdfs_q2val_02.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata_FULLFIT/pdfs_q2val_02.txt
+END
+pdfs_q2val_03.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata_FULLFIT/pdfs_q2val_03.txt
+END
+pdfs_q2val_04.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata_FULLFIT/pdfs_q2val_04.txt
+END
+pdfs_q2val_05.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata_FULLFIT/pdfs_q2val_05.txt
+END
+pdfs_q2val_06.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata_FULLFIT/pdfs_q2val_06.txt
+END
+lhapdf.block.txt
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata_FULLFIT/lhapdf.block.txt
+END
+minuit.out.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/basic/h1fitter/!svn/ver/1003/trunk/examples/output_ALLdata_FULLFIT/minuit.out.txt
+END

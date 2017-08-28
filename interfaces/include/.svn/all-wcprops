@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/1207/trunk/interfaces/include
+END
+get_pdfs.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/basic/h1fitter/!svn/ver/651/trunk/interfaces/include/get_pdfs.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/1207/trunk/interfaces/include/Makefile.am
+END

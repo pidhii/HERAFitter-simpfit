@@ -1,0 +1,443 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/basic/h1fitter/!svn/ver/1203/trunk/minuit/src
+END
+mnpfit.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnpfit.F
+END
+mncuve.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mncuve.F
+END
+mnhess.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/915/trunk/minuit/src/mnhess.F
+END
+mnmatu.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnmatu.F
+END
+mncntr.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mncntr.F
+END
+mnprin.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnprin.F
+END
+minuit.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/minuit.F
+END
+mninpu.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mninpu.F
+END
+mnderi.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnderi.F
+END
+mnamin.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnamin.F
+END
+mnrn15.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnrn15.F
+END
+mnemat.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnemat.F
+END
+mnseek.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnseek.F
+END
+mnpout.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnpout.F
+END
+mnline.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnline.F
+END
+mneval.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mneval.F
+END
+mnhelp.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnhelp.F
+END
+mnpsdf.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnpsdf.F
+END
+mnexcm.F
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/1203/trunk/minuit/src/mnexcm.F
+END
+mnparm.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnparm.F
+END
+mystuff.F
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/2/trunk/minuit/src/mystuff.F
+END
+mninit.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mninit.F
+END
+mninex.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mninex.F
+END
+mnexin.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnexin.F
+END
+mnpars.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnpars.F
+END
+mnread.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnread.F
+END
+mnmnos.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnmnos.F
+END
+mnvert.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnvert.F
+END
+mntiny.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mntiny.F
+END
+intrac.F
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/2/trunk/minuit/src/intrac.F
+END
+mnrazz.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnrazz.F
+END
+xrange.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/536/trunk/minuit/src/xrange.F
+END
+mnset.F
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnset.F
+END
+mnhes1.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnhes1.F
+END
+reumat.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/536/trunk/minuit/src/reumat.F
+END
+mncont.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mncont.F
+END
+mnseti.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnseti.F
+END
+mnlims.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnlims.F
+END
+mnimpr.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnimpr.F
+END
+mnwarn.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnwarn.F
+END
+mnerrs.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnerrs.F
+END
+mnintr.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnintr.F
+END
+mnrset.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnrset.F
+END
+mngrad.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mngrad.F
+END
+mnplot.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnplot.F
+END
+evplot.F
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/2/trunk/minuit/src/evplot.F
+END
+stand.F
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/stand.F
+END
+mnwerr.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnwerr.F
+END
+mncrck.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mncrck.F
+END
+mncomd.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mncomd.F
+END
+mnscan.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnscan.F
+END
+mncler.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mncler.F
+END
+mnunpt.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnunpt.F
+END
+d506cm.inc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/369/trunk/minuit/src/d506cm.inc
+END
+mndxdi.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mndxdi.F
+END
+mnbins.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnbins.F
+END
+mnmigr.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnmigr.F
+END
+iterate.F
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/536/trunk/minuit/src/iterate.F
+END
+mneig.F
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mneig.F
+END
+mncalf.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mncalf.F
+END
+mncros.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mncros.F
+END
+mnfixp.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnfixp.F
+END
+mnsimp.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnsimp.F
+END
+mnpint.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnpint.F
+END
+mnstat.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnstat.F
+END
+mnstin.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnstin.F
+END
+mnmnot.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnmnot.F
+END
+mnvers.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnvers.F
+END
+mnfree.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnfree.F
+END
+wrumat.F
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/2/trunk/minuit/src/wrumat.F
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/2/trunk/minuit/src/Makefile.am
+END
+d506dp.inc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/2/trunk/minuit/src/d506dp.inc
+END
+mnsave.F
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/916/trunk/minuit/src/mnsave.F
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/basic/h1fitter/!svn/ver/1317/trunk/interfaces/src
+END
+hf_pdf_calls.f
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/basic/h1fitter/!svn/ver/1317/trunk/interfaces/src/hf_pdf_calls.f
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1098/trunk/interfaces/src/Makefile.am
+END
+Cache_pdf_calls.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/basic/h1fitter/!svn/ver/617/trunk/interfaces/src/Cache_pdf_calls.cxx
+END

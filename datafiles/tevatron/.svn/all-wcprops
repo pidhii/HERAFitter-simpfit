@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/1441/trunk/datafiles/tevatron
+END
+D0_JETS.dat
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/tevatron/D0_JETS.dat
+END
+CDF_JETS2008.dat
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/tevatron/CDF_JETS2008.dat
+END
+CDF-TOP-CONF-NOTE-9913_prelim.dat
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/basic/h1fitter/!svn/ver/641/trunk/datafiles/tevatron/CDF-TOP-CONF-NOTE-9913_prelim.dat
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/1207/trunk/datafiles/tevatron/Makefile.am
+END

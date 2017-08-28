@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/basic/h1fitter/!svn/ver/1039/trunk/RT/src
+END
+mstw2008_wrap.f
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/1034/trunk/RT/src/mstw2008_wrap.f
+END
+mstw2008.f
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/1039/trunk/RT/src/mstw2008.f
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/1034/trunk/RT/src/Makefile.am
+END

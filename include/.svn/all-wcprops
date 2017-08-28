@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/basic/h1fitter/!svn/ver/1454/trunk/include
+END
+TheorEval.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/1423/trunk/include/TheorEval.h
+END
+systematics.inc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1112/trunk/include/systematics.inc
+END
+extrapars.inc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/369/trunk/include/extrapars.inc
+END
+scales.inc
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/582/trunk/include/scales.inc
+END
+covar.inc
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/1350/trunk/include/covar.inc
+END
+fractal.inc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/1325/trunk/include/fractal.inc
+END
+theorexpr.inc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/1423/trunk/include/theorexpr.inc
+END
+steering.inc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/1452/trunk/include/steering.inc
+END
+ntot.inc
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/1323/trunk/include/ntot.inc
+END
+qcdnumhelper.inc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/675/trunk/include/qcdnumhelper.inc
+END
+for_debug.inc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/216/trunk/include/for_debug.inc
+END
+g_offset.inc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/1044/trunk/include/g_offset.inc
+END
+iofnames.inc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/802/trunk/include/iofnames.inc
+END
+polarity.inc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/396/trunk/include/polarity.inc
+END
+couplings.inc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/1238/trunk/include/couplings.inc
+END
+alphas.inc
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/260/trunk/include/alphas.inc
+END
+datasets.inc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/1110/trunk/include/datasets.inc
+END
+applgrid_fastpdf.inc
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/323/trunk/include/applgrid_fastpdf.inc
+END
+pdflength.inc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/3/trunk/include/pdflength.inc
+END
+reweighting.inc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/789/trunk/include/reweighting.inc
+END
+dipole.inc
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/733/trunk/include/dipole.inc
+END
+herafitter_cpp.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/1454/trunk/include/herafitter_cpp.h
+END
+thresholds.inc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/191/trunk/include/thresholds.inc
+END
+endmini.inc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/723/trunk/include/endmini.inc
+END
+pdfparam.inc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/1198/trunk/include/pdfparam.inc
+END
+theo.inc
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/1218/trunk/include/theo.inc
+END
+indata.inc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/1121/trunk/include/indata.inc
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/1452/trunk/include/Makefile.am
+END
+c_interface.inc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1372/trunk/include/c_interface.inc
+END
+nnpdf.inc
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/788/trunk/include/nnpdf.inc
+END
+fcn.inc
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/basic/h1fitter/!svn/ver/576/trunk/include/fcn.inc
+END

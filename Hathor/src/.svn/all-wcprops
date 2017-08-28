@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/basic/h1fitter/!svn/ver/1228/trunk/Hathor/src
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/581/trunk/Hathor/src/Makefile.am
+END
+HathorInterface.cc
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/basic/h1fitter/!svn/ver/597/trunk/Hathor/src/HathorInterface.cc
+END
+HERAFitterPdf.cc
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/1228/trunk/Hathor/src/HERAFitterPdf.cc
+END

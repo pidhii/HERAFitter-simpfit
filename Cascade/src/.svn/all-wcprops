@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/basic/h1fitter/!svn/ver/1253/trunk/Cascade/src
+END
+cascade-dummy.F
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/1208/trunk/Cascade/src/cascade-dummy.F
+END
+cascade-misc.F
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/basic/h1fitter/!svn/ver/738/trunk/Cascade/src/cascade-misc.F
+END
+cascade-util.F
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1253/trunk/Cascade/src/cascade-util.F
+END
+SMallx.inc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/1208/trunk/Cascade/src/SMallx.inc
+END
+evolve_tmd.F
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/1253/trunk/Cascade/src/evolve_tmd.F
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1227/trunk/Cascade/src/Makefile.am
+END
+cascade-util_nbx.inc
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/738/trunk/Cascade/src/cascade-util_nbx.inc
+END

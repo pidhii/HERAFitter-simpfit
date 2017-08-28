@@ -1,0 +1,275 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/1207/trunk/DiffDIS/include
+END
+emsg.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/emsg.h
+END
+FFstrFns.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/FFstrFns.h
+END
+byteswap.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/byteswap.h
+END
+Param.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/Param.h
+END
+ifun.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/ifun.h
+END
+DDIS.coca
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/DDIS.coca
+END
+mathcst.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/mathcst.h
+END
+types.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/types.h
+END
+Coca.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/Coca.h
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/config.h
+END
+tblipol.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/tblipol.h
+END
+xgrid_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/xgrid_base.h
+END
+plug_DDIS.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/1044/trunk/DiffDIS/include/plug_DDIS.h
+END
+gZDPDF.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/gZDPDF.h
+END
+qcdnum_pdf.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/qcdnum_pdf.h
+END
+DataTable.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/DataTable.h
+END
+basic_defs.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/basic_defs.h
+END
+ddis.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/ddis.h
+END
+xdr++.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/xdr++.h
+END
+rpc.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/rpc.h
+END
+hdpdf.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/hdpdf.h
+END
+physparams.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/physparams.h
+END
+TRc.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/TRc.h
+END
+TheModel_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/1044/trunk/DiffDIS/include/TheModel_base.h
+END
+qcdpars.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/qcdpars.h
+END
+xdr.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/xdr.h
+END
+dilog.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/dilog.h
+END
+JScif.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/JScif.h
+END
+qgrid_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/qgrid_base.h
+END
+mathut.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/mathut.h
+END
+sock_DDIS.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/sock_DDIS.h
+END
+pdf_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/pdf_base.h
+END
+qgrid.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/qgrid.h
+END
+aqcd.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/aqcd.h
+END
+trs.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/trs.h
+END
+xgrid.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/xgrid.h
+END
+flux.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/flux.h
+END
+timer.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/timer.h
+END
+genut.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/genut.h
+END
+gauss.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/gauss.h
+END
+mosat.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/mosat.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/1207/trunk/DiffDIS/include/Makefile.am
+END
+MDipol.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/MDipol.h
+END
+GrdHeader.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/GrdHeader.h
+END
+grvpi.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/498/trunk/DiffDIS/include/grvpi.h
+END

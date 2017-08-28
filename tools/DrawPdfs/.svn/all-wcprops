@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/basic/h1fitter/!svn/ver/1462/trunk/tools/DrawPdfs
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1453/trunk/tools/DrawPdfs/Makefile.am
+END

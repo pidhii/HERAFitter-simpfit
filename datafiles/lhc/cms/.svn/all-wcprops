@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/cms
+END
+CMS_DY_CC_ASYMMETRY_appl.dat
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/cms/CMS_DY_CC_ASYMMETRY_appl.dat
+END
+CMS_Z_boson_Rapidity___CMS_Z_boson_Rapidity.corr
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/basic/h1fitter/!svn/ver/1122/trunk/datafiles/lhc/cms/CMS_Z_boson_Rapidity___CMS_Z_boson_Rapidity.corr
+END
+CMS-TOP-11-024_prelim.dat
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/cms/CMS-TOP-11-024_prelim.dat
+END
+CMS_eAsymmetry_SPM_12_001___CMS_eAsymmetry_SPM_12_001.corr
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/basic/h1fitter/!svn/ver/1122/trunk/datafiles/lhc/cms/CMS_eAsymmetry_SPM_12_001___CMS_eAsymmetry_SPM_12_001.corr
+END
+CMS_Z_boson_Rapidity.dat
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/cms/CMS_Z_boson_Rapidity.dat
+END
+CMS_eAsymmetry_SPM_12_001.dat
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/basic/h1fitter/!svn/ver/1279/trunk/datafiles/lhc/cms/CMS_eAsymmetry_SPM_12_001.dat
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/basic/h1fitter/!svn/ver/1207/trunk/datafiles/lhc/cms/Makefile.am
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1056/trunk/examples/ZEUS-DDIS_2009
+END
+get_input.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/basic/h1fitter/!svn/ver/1056/trunk/examples/ZEUS-DDIS_2009/get_input.tcl
+END
+cmp_offs_results.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/basic/h1fitter/!svn/ver/1056/trunk/examples/ZEUS-DDIS_2009/cmp_offs_results.tcl
+END

@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/basic/h1fitter/!svn/ver/1207/trunk/ABM/src
+END
+sf_abkm_wrap.f
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/sf_abkm_wrap.f
+END
+hqnnlocoef.f
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/hqnnlocoef.f
+END
+f2ccbmsn.f
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/f2ccbmsn.f
+END
+disqpm.f
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/disqpm.f
+END
+PDFCOM.
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/PDFCOM.
+END
+APSCOM6.
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/APSCOM6.
+END
+cq.f
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/cq.f
+END
+hqcoef.f
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/hqcoef.f
+END
+wrapNNPDFgrid.f
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/wrapNNPDFgrid.f
+END
+dishq.f
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/dishq.f
+END
+lpcoef.f
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/lpcoef.f
+END
+OMECOM.
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/OMECOM.
+END
+dislt.f
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/dislt.f
+END
+CONSTCOM.
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/CONSTCOM.
+END
+initgridconst.F
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/initgridconst.F
+END
+ome.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/ome.f
+END
+gauss.f
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/gauss.f
+END
+alphasvfn.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/alphasvfn.f
+END
+PRECCOM.
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/PRECCOM.
+END
+NNPDFwrapinit.f
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/NNPDFwrapinit.f
+END
+grid.F
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/grid.F
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/1207/trunk/ABM/src/Makefile.am
+END
+asympcoef.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/asympcoef.f
+END
+spline.f
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/1158/trunk/ABM/src/spline.f
+END

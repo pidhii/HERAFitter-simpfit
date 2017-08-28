@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/basic/h1fitter/!svn/ver/1237/trunk/DY/src
+END
+BinMatrix.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/167/trunk/DY/src/BinMatrix.cc
+END
+DYcalc.cc
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/935/trunk/DY/src/DYcalc.cc
+END
+PDFconv.cc
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/689/trunk/DY/src/PDFconv.cc
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/651/trunk/DY/src/Makefile.am
+END
+PhysPar.cc
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/900/trunk/DY/src/PhysPar.cc
+END
+finterface.cc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/1237/trunk/DY/src/finterface.cc
+END
+IntSteps.cc
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/935/trunk/DY/src/IntSteps.cc
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/1230/trunk/theoryfiles/updf
+END
+f2qpm-grid.dat
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/1230/trunk/theoryfiles/updf/f2qpm-grid.dat
+END
+ccfm-final-setA0.dat
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/basic/h1fitter/!svn/ver/763/trunk/theoryfiles/updf/ccfm-final-setA0.dat
+END
+ccfm-quark.dat
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/762/trunk/theoryfiles/updf/ccfm-quark.dat
+END
+ccfm-grid.dat
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/1230/trunk/theoryfiles/updf/ccfm-grid.dat
+END
+f2tilde-grid.dat
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/basic/h1fitter/!svn/ver/1230/trunk/theoryfiles/updf/f2tilde-grid.dat
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/basic/h1fitter/!svn/ver/1207/trunk/theoryfiles/updf/Makefile.am
+END

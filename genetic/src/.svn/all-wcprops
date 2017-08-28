@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/basic/h1fitter/!svn/ver/1287/trunk/genetic/src
+END
+genetic_dummy.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/1231/trunk/genetic/src/genetic_dummy.h
+END
+genetic_search.C
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/basic/h1fitter/!svn/ver/1209/trunk/genetic/src/genetic_search.C
+END
+mixmax_wrapper.C
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/basic/h1fitter/!svn/ver/1203/trunk/genetic/src/mixmax_wrapper.C
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1231/trunk/genetic/src/Makefile.am
+END
+genetic_search.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/basic/h1fitter/!svn/ver/1206/trunk/genetic/src/genetic_search.h
+END
+mixmax_wrapper.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/basic/h1fitter/!svn/ver/1203/trunk/genetic/src/mixmax_wrapper.h
+END
+genetic_dummy.C
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/1231/trunk/genetic/src/genetic_dummy.C
+END

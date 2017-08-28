@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/basic/h1fitter/!svn/ver/1207/trunk/common
+END
+Xstring.cc
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/1043/trunk/common/Xstring.cc
+END
+dbgtools.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/1043/trunk/common/dbgtools.h
+END
+FTNFitPars.cc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/basic/h1fitter/!svn/ver/1043/trunk/common/FTNFitPars.cc
+END
+Xstring.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/1043/trunk/common/Xstring.h
+END
+FTNFitPars.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/1043/trunk/common/FTNFitPars.h
+END
+FitPars_base.cc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/1043/trunk/common/FitPars_base.cc
+END
+FitPars_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/1043/trunk/common/FitPars_base.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/1207/trunk/common/Makefile.am
+END
+fiasco.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/1043/trunk/common/fiasco.h
+END
+TextReader.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/basic/h1fitter/!svn/ver/1043/trunk/common/TextReader.h
+END

@@ -1,0 +1,52 @@
+!
+! The data are taken from: arXiv:1312.2895
+!
+! Measurement of the $\boldsymbol{W}$ boson production charge asymmetry
+! in $\boldsymbol{p\bar{p}\rightarrow W+X \rightarrow e\nu +X}$ events at $\boldsymbol{\sqrt{s}=1.96}$~TeV
+!
+! By D0 Collaboration. December 2013
+!
+!
+&Data
+   Name = 'D0 W asymmetry 2013'
+   Reaction  = 'CC ppbar'
+
+   NDATA = 14
+   NColumn = 6
+   ColumnType = 'Flag',2*'Bin','Sigma',3*'Error'
+!   ColumnName = 'binFlag','y1','y2','sigma','stat const','uncor const','total'
+   ColumnName = 'binFlag','y1','y2','sigma','stat const','uncor const','ignore'
+   NInfo   = 2
+   CInfo    = 'theoryunit','ppbar'
+   DataInfo = 1.,1.
+   IndexDataset = 86
+
+  TheoryType     = 'expression'
+  TermName = 'A1', 'A2'
+  TermType = 'applgrid','applgrid'
+  TermSource = 'theoryfiles/tevatron/wzinclusive/grid-40-6-15-3-Wplus_wyd0.root', 'theoryfiles/tevatron/wzinclusive/grid-40-6-15-3-Wminus_wyd0.root'
+  TheorExpr= '(A1-A2)/(A1+A2)'
+  Percent   = false,false,false
+&End
+&PlotDesc
+    PlotN = 1
+    PlotDefColumn = 'y2'
+    PlotDefValue = 0., 5.
+    PlotOptions(1)  = 'Experiment:D0@ExtraLabel:p#bar{p} #rightarrow W #rightarrow e#nu; #sqrt{s} = 1.96 TeV; #int L = 9.7 fb^{-1}@XTitle: |y_{W}| @YTitle: A_{y_{W}} '
+!@YminR:0.61@YmaxR:1.39'
+&End
+*binflag y1    	   y2     sigma	stat	syst	tot
+1	0.0	0.2	0.0127	0.0017	0.0012	0.00208
+1	0.2	0.4	0.0393 	0.0018	0.0019	0.00262
+1	0.4	0.6	0.0674 	0.0019	0.0027	0.00330
+1	0.6	0.8	0.0987  0.0020	0.0032	0.00377
+1	0.8	1.0	0.1355	0.0021	0.0034	0.00400
+1	1.0	1.2	0.1752	0.0022	0.0037	0.00430
+1	1.2	1.4	0.2131	0.0024	0.0039	0.00458
+1	1.4	1.6	0.2497	0.0027	0.0036	0.00450
+1	1.6	1.8	0.2889	0.0031	0.0034	0.00460
+1	1.8	2.0	0.3345	0.0035	0.0038	0.00517
+1	2.0	2.2	0.3912	0.0040	0.0043	0.00587
+1	2.2	2.4	0.4590	0.0044	0.0043	0.00615
+1	2.4	2.7	0.5694	0.0046	0.0044	0.00637
+1	2.7	3.2	0.7455	0.0093	0.0056	0.01086

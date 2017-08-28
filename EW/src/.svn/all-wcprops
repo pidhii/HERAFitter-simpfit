@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/basic/h1fitter/!svn/ver/1159/trunk/EW/src
+END
+formff.f
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/basic/h1fitter/!svn/ver/1159/trunk/EW/src/formff.f
+END
+hadr5n12.f
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/basic/h1fitter/!svn/ver/1159/trunk/EW/src/hadr5n12.f
+END
+wrap_ew.f
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/basic/h1fitter/!svn/ver/1159/trunk/EW/src/wrap_ew.f
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/basic/h1fitter/!svn/ver/1159/trunk/EW/src/Makefile.am
+END

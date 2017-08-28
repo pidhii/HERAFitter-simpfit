@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/1244/trunk/theoryfiles/atlas/WZ2010
+END
+WM-applgrid.root
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/basic/h1fitter/!svn/ver/513/trunk/theoryfiles/atlas/WZ2010/WM-applgrid.root
+END
+KF-Wm-nnlo2nlo-ew.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/basic/h1fitter/!svn/ver/1244/trunk/theoryfiles/atlas/WZ2010/KF-Wm-nnlo2nlo-ew.txt
+END
+WP-applgrid.root
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/basic/h1fitter/!svn/ver/513/trunk/theoryfiles/atlas/WZ2010/WP-applgrid.root
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/basic/h1fitter/!svn/ver/1207/trunk/theoryfiles/atlas/WZ2010/Makefile.am
+END
+KF-Wp-nnlo2nlo-ew.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/basic/h1fitter/!svn/ver/1244/trunk/theoryfiles/atlas/WZ2010/KF-Wp-nnlo2nlo-ew.txt
+END
+Z0-applgrid.root
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/basic/h1fitter/!svn/ver/513/trunk/theoryfiles/atlas/WZ2010/Z0-applgrid.root
+END
+KF-Z0-nnlo2nlo-ew.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/basic/h1fitter/!svn/ver/1244/trunk/theoryfiles/atlas/WZ2010/KF-Z0-nnlo2nlo-ew.txt
+END

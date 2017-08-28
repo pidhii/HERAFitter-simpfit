@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/basic/h1fitter/!svn/ver/1463/trunk/input_steering
+END
+minuit.in.txt.DIFFRACTION
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/basic/h1fitter/!svn/ver/1044/trunk/input_steering/minuit.in.txt.DIFFRACTION
+END
+covar.in
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/basic/h1fitter/!svn/ver/1194/trunk/input_steering/covar.in
+END
+steer_gluon-evolv
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/basic/h1fitter/!svn/ver/1207/trunk/input_steering/steer_gluon-evolv
+END
+minuit.in.txt.10pHERAPDF
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/basic/h1fitter/!svn/ver/770/trunk/input_steering/minuit.in.txt.10pHERAPDF
+END
+minuit.in.txt.CTEQHERA
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/basic/h1fitter/!svn/ver/1463/trunk/input_steering/minuit.in.txt.CTEQHERA
+END
+minuit.in.txt.CTEQ
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/basic/h1fitter/!svn/ver/770/trunk/input_steering/minuit.in.txt.CTEQ
+END
+minuit.in.txt.BiLog
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/basic/h1fitter/!svn/ver/1000/trunk/input_steering/minuit.in.txt.BiLog
+END
+minuit.in.txt.13pHERAPDF
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/basic/h1fitter/!svn/ver/770/trunk/input_steering/minuit.in.txt.13pHERAPDF
+END
+steering.txt.DIFFRACTION
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/basic/h1fitter/!svn/ver/1281/trunk/input_steering/steering.txt.DIFFRACTION
+END
+minuit.in.txt.CHEB
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/basic/h1fitter/!svn/ver/770/trunk/input_steering/minuit.in.txt.CHEB
+END
+steering.txt.def
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/1257/trunk/input_steering/steering.txt.def
+END
+minuit.in.txt.kt-factorisation-saturation
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/basic/h1fitter/!svn/ver/1207/trunk/input_steering/minuit.in.txt.kt-factorisation-saturation
+END
+steering.txt.ALLdata
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/basic/h1fitter/!svn/ver/1377/trunk/input_steering/steering.txt.ALLdata
+END
+ewparam.txt.DIFFRACTION
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/basic/h1fitter/!svn/ver/508/trunk/input_steering/ewparam.txt.DIFFRACTION
+END
+minuit.in.txt.fractal
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/basic/h1fitter/!svn/ver/1325/trunk/input_steering/minuit.in.txt.fractal
+END
+minuit.in.txt.dipole
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/basic/h1fitter/!svn/ver/1041/trunk/input_steering/minuit.in.txt.dipole
+END
+minuit.in.txt.GENETIC
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/basic/h1fitter/!svn/ver/1212/trunk/input_steering/minuit.in.txt.GENETIC
+END
+steer-ep-CASCADE
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/1230/trunk/input_steering/steer-ep-CASCADE
+END
+ewparam.txt.def
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/1056/trunk/input_steering/ewparam.txt.def
+END
+minuit.in.txt.kt-factorisation
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/basic/h1fitter/!svn/ver/948/trunk/input_steering/minuit.in.txt.kt-factorisation
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1207/trunk/input_steering/Makefile.am
+END
+steering.txt.dipole
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/basic/h1fitter/!svn/ver/1222/trunk/input_steering/steering.txt.dipole
+END
+steering.txt.fractal
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/basic/h1fitter/!svn/ver/1325/trunk/input_steering/steering.txt.fractal
+END
+steer_gluon-saturation
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/basic/h1fitter/!svn/ver/1207/trunk/input_steering/steer_gluon-saturation
+END
+steering.txt.kt-factorisation
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/basic/h1fitter/!svn/ver/1230/trunk/input_steering/steering.txt.kt-factorisation
+END

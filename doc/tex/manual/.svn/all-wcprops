@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/basic/h1fitter/!svn/ver/1245/trunk/doc/tex/manual
+END
+Introduction.tex
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/1130/trunk/doc/tex/manual/Introduction.tex
+END
+Chisquare.tex
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/basic/h1fitter/!svn/ver/1129/trunk/doc/tex/manual/Chisquare.tex
+END
+writeup.bst
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1136/trunk/doc/tex/manual/writeup.bst
+END
+Reweighing.tex
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/basic/h1fitter/!svn/ver/1130/trunk/doc/tex/manual/Reweighing.tex
+END
+writeup.bib
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1132/trunk/doc/tex/manual/writeup.bib
+END
+PDFparametrisation.tex
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/basic/h1fitter/!svn/ver/1179/trunk/doc/tex/manual/PDFparametrisation.tex
+END
+Makefile.foreditors
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/basic/h1fitter/!svn/ver/1132/trunk/doc/tex/manual/Makefile.foreditors
+END
+writeup.tex
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1150/trunk/doc/tex/manual/writeup.tex
+END
+dpdfs.tex
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/basic/h1fitter/!svn/ver/1129/trunk/doc/tex/manual/dpdfs.tex
+END
+Installation.tex
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/1230/trunk/doc/tex/manual/Installation.tex
+END
+ProgramManual.tex
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/basic/h1fitter/!svn/ver/1230/trunk/doc/tex/manual/ProgramManual.tex
+END
+Theory.tex
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/basic/h1fitter/!svn/ver/1230/trunk/doc/tex/manual/Theory.tex
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/basic/h1fitter/!svn/ver/1245/trunk/doc/tex/manual/Makefile.am
+END
+Namelist.tex
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/1130/trunk/doc/tex/manual/Namelist.tex
+END
+ErrorTreatment.tex
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/basic/h1fitter/!svn/ver/1129/trunk/doc/tex/manual/ErrorTreatment.tex
+END
+UsersExample.tex
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/1130/trunk/doc/tex/manual/UsersExample.tex
+END

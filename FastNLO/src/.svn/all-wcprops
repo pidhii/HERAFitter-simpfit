@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/basic/h1fitter/!svn/ver/905/trunk/FastNLO/src
+END
+FastNLOBlockB.cc
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/883/trunk/FastNLO/src/FastNLOBlockB.cc
+END
+FastNLOHeraFitter.cc
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/basic/h1fitter/!svn/ver/883/trunk/FastNLO/src/FastNLOHeraFitter.cc
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/basic/h1fitter/!svn/ver/746/trunk/FastNLO/src/Makefile.am
+END
+FastNLOInterface.cc
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/basic/h1fitter/!svn/ver/905/trunk/FastNLO/src/FastNLOInterface.cc
+END
+FastNLOReader.cc
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/basic/h1fitter/!svn/ver/883/trunk/FastNLO/src/FastNLOReader.cc
+END
+speaker.cc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/basic/h1fitter/!svn/ver/883/trunk/FastNLO/src/speaker.cc
+END
