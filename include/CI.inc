@@ -1,11 +1,3 @@
-      logical CI_simpfcn_mode
-      common/CIrules/ CI_simpfcn_mode
-
-
-      logical CI_extra_reading_done
-      common/CIstatics/ CI_extra_reading_done
-
-
       double precision m0(2500), dm0dp(2500, 200)
      $               , m1(2500), dm1dp(2500, 200)
      $               , m2(2500), dm2dp(2500, 200)

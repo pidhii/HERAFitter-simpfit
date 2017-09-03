@@ -1504,7 +1504,8 @@ C
       do while (ii.gt.0) 
          if ( SourceName(ii+1:ii+1) .eq.'A' ) then
             SysScalingType(nsys) = isNoRescale
-              Call HF_errlog(12090001, 'I: Some systematic sources are additive')
+              Call HF_errlog(12090001, 'I: Some systematic sources'//
+     $                                                'are additive')
          elseif ( SourceName(ii+1:ii+1) .eq.'M' ) then
             SysScalingType(nsys) = isLinear
          elseif ( SourceName(ii+1:ii+1) .eq.'P' ) then
@@ -1557,8 +1558,16 @@ C  Read the CI namelist:
  131  continue
       close (51)
 
-      CI_simpfcn_mode       = .false.
-      CI_extra_reading_done = .false.
+      if(CIdoSimpFit) then
+         if(TRIM(CIsimpFitStep) .eq. 'CalcDerivatives') then
+         else if(TRIM(CIsimpFitStep) .eq. 'SimpFit') then
+         else
+            print *, "Error: not supported CISimpFitStep value: ", 
+     $                TRIM(CIsimpFitStep)
+            call HF_stop
+         endif
+      endif
+
 
       if (doCI) then
         CIindex = 0
@@ -1569,17 +1578,6 @@ C  Read the CI namelist:
           CIname = 'CI_Rq'
           CIvarmin = 0.
           CIvarmax = 0.
-        endif
-
-        if(CIdoSimpFit) then
-          if(TRIM(CIsimpFitStep) .eq. 'CalcDerivatives') then
-            
-          else if(TRIM(CIsimpFitStep) .eq. 'SimpFit') then
-            CI_simpfcn_mode = .true.
-          else
-            print *, "Error: not supported CISimpFitStep value: ", 
-     $                TRIM(CIsimpFitStep)
-          endif
         endif
 
         if (LDebug) then

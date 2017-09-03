@@ -163,6 +163,8 @@ c    buffers
       double precision :: THEO_buffer(NTOT), RqTrue, Rqerr, Parbuffer
       double precision :: dm1dp_p, dm1dp_m
 
+      integer :: needed_pars(mne), nd_prs_end
+
 c    external functions and subroutines
       double precision :: getPar, getParerr
       external :: calc_theo
@@ -172,8 +174,10 @@ c    external functions and subroutines
       common/MN7DER/ GRD, G2, GSTEP, g_dummy, DGRD
       double precision :: parminuit(MNE), ALIM(MNE), BLIM(MNE)
       common/MN7EXT/ parminuit, ALIM, BLIM
+      character*10 pname(mne)
+      common/MN7NAM/ pname
 
-
+*     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
       RqTrue = getPar(idxCIval)
       Rqerr  = getParerr(idxCIval)
 
@@ -182,11 +186,12 @@ c    external functions and subroutines
       call derivs_to_zero
       call get_Q2xys
 
-
-      if(.not.doCI) goto 664 ! skip coutings
-c     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+      nd_prs_iter = 1
+*     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
       do i_par = 1, mne
          if(getParerr(i_par) .eq. 0.D0) cycle
+         needed_pars(nd_prs_end) = i_par
+         nd_prs_iter = nd_prs_end + 1
 
          Parbuffer = getPar(i_par)
 
@@ -199,9 +204,7 @@ c                          dm0/dp, dm2/dp, m1, m2
          endif
          call calc_theo(g_dummy, parminuit, 4)
          
-         do i = 1, NTOT
-            THEO_buffer(i) = THEO(i)
-         end do
+        THEO_buffer = THEO
 
          if(i_par .ne. idxCIval) then
             parminuit(i_par) = Parbuffer - 0.5*getParerr(i_par)
@@ -214,13 +217,12 @@ c                          dm0/dp, dm2/dp, m1, m2
             do i = 1, NDATAPOINTS(i_dat)
                idx = DATASETIDX(i_dat, i)
                if(i_par .ne. idxCIval) then
-                  dm0dp(idx,i_par) = (THEO(idx) - THEO_buffer(idx))/
+                  dm0dp(idx,i_par) = (THEO_buffer(idx) - THEO(idx))/
      $                                      getParerr(i_par)
-                  if(.not. doCI) cycle
      
-                  dm2dp(idx, i_par) = 2.*(THEO_buffer(idx) - THEO(idx))
+                  dm2dp(idx, i_par) = 2.*(THEO(idx) - THEO_buffer(idx))
                else if(doCI) then
-                  m1(idx) = (THEO(idx) - THEO_buffer(idx))/
+                  m1(idx) = (THEO_buffer(idx) - THEO(idx))/
      $                          (2.*getParerr(i_par))
                   m2(idx) = (THEO(idx) + THEO_buffer(idx) - 2.*m0(idx))/
      $                                   (2.*Rqerr**2)
@@ -244,9 +246,7 @@ c                              dm1dp_p
          parminuit(idxCIval) = RqTrue + Rqerr
          call calc_theo(g_dummy, parminuit, 4)
 
-         do i = 1, NTOT
-            THEO_buffer(i) = THEO(i)
-         end do
+         THEO_buffer = THEO
 
          parminuit(idxCIval) = RqTrue - Rqerr
          call calc_theo(g_dummy, parminuit, 4)
@@ -254,7 +254,7 @@ c                              dm1dp_p
          do i_dat = 1, ndatasets
             do i = 1, NDATAPOINTS(i_dat)
                idx = DATASETIDX(i_dat, i)
-               dm1dp_p = (THEO(idx) - THEO_buffer(idx))/(2.*Rqerr)
+               dm1dp_p = (THEO_buffer(idx) - THEO(idx))/(2.*Rqerr)
      
                dm2dp(idx, i_par) = dm2dp(idx, i_par) + THEO(idx)
      $                           + THEO_buffer(idx)
@@ -269,9 +269,7 @@ c                            dm1dp_m
          parminuit(idxCIval) = RqTrue + Rqerr
          call calc_theo(g_dummy, parminuit, 4)
 
-         do i = 1, NTOT
-            THEO_buffer(i) = THEO(i)
-         end do
+         THEO_buffer = THEO
 
          parminuit(idxCIval) = RqTrue - Rqerr
          call calc_theo(g_dummy, parminuit, 4)
@@ -279,12 +277,13 @@ c                            dm1dp_m
          do i_dat = 1, ndatasets
             do i = 1, NDATAPOINTS(i_dat)
                idx = DATASETIDX(i_dat, i)
-               dm1dp_m = (THEO(idx) - THEO_buffer(idx))/(2.*Rqerr)
+               dm1dp_m = (THEO_buffer(idx) - THEO(idx))/(2.*Rqerr)
                dm1dp(idx, i_par) = (dm1dp_p - dm1dp_m)/
      $                               getParerr(i_par)
 
-               dm2dp(idx,i_par)=dm2dp(idx,i_par)-(THEO(idx)+THEO_buffer(idx))/
-     $                              (2. * Rqerr**2 * getParerr(i_par))
+               dm2dp(idx,i_par) = (dm2dp(idx,i_par) 
+     $                                  - THEO(idx) + THEO_buffer(idx))/
+     $                             (2. * Rqerr**2 * getParerr(i_par))
             end do
          end do
 
@@ -293,28 +292,35 @@ c                            dm1dp_m
          parminuit(i_par) = Parbuffer
          parminuit(idxCIval) = RqTrue
       end do
-c     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+*     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
 
  664  continue
 
+      nd_prs_end = nd_prs_end - 1
 
       open(103, file = "CIDerivatives.txt", status = 'unknown')
       write(103, '(A, I3)') "Npars ", mne
       write(103, '(''CIvar '', F10.7, F10.7)')
      $                    getPar(idxCIval), getParerr(idxCIval)
+      write(103, 668, advance='no') "Data Set", "Q2", "x", "y" , "m0"
+
       do i_dat = 1, ndatasets
          do i = 1, NDATAPOINTS(i_dat)
             idx = DATASETIDX(i_dat, i)
             write(103,665,advance='no') TRIM(DATASETLABEL(i_dat))
-     $                           , Q2(idx), X(idx), Y(idx), m0(idx) 
-            write(103,667,advance='no') dm0dp(idx, : )
+     $                                , Q2(idx), X(idx), Y(idx), m0(idx)
+            do 6601 i_par = 1, nd_prs_end
+ 6601          write(103,667,advance='no') dm0dp(idx, i_par)
             write(103,666,advance='no') m1(idx)
-            write(103,667,advance='no') dm1dp(idx, : )
+            do 6602 i_par = 1, nd_prs_end
+ 6602          write(103,667,advance='no') dm1dp(idx, i_par)
             write(103,666,advance='no') m2(idx)
-            write(103,667,advance='no') dm2dp(idx, : )
-            write(103,*)
+            do 6603 i = 1, nd_prs_end
+ 6603          write(103,667,advance='no') dm2dp(idx, i_par)
+            write(103,*) ! new line
          end do
       end do
+ 668  format(A15,   A10,    A25,    A25,      A25)
  665  format(A15, F10.2, F25.20, F25.20, E25.15E3)
  666  format(E25.15E3)
  667  format(200E25.15E3)
@@ -322,7 +328,7 @@ c     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
 
       return
 
-      
+*     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
       contains
       
       subroutine derivs_to_zero

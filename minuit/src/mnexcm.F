@@ -195,14 +195,8 @@ C                                        . . . . . . migrad, minimize
             CALL CI_calc_derivatives
             GOTO 5000
          ELSEIF(TRIM(CISimpFitStep) .eq. 'SimpFit') THEN
-            PRINT *, " ---<=={ checking errors (I) }==>--- "
-            CALL CI_SCAN_PARERRORS
             CALL CI_READ_SIMP_FIT_DATA
-            PRINT *, " ---<=={ checking errors (II) }==>--- "
-            CALL CI_SCAN_PARERRORS
             CALL CI_READ_MISSING_PARERRORS
-            PRINT *, " ---<=={ checking errors (III) }==>--- "
-            CALL CI_SCAN_PARERRORS
          ENDIF
       ENDIF
 

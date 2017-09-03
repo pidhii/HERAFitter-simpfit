@@ -59,7 +59,7 @@ C Store FCN flag in a common block:
       endif
 
 
-      if(CI_simpfcn_mode) then
+      if(TRIM(CIsimpFitStep) .eq. "SimpFit") then
          call simpfcn(g_dummy, chi2out, parminuit, iflag)
          return
       end if
@@ -232,7 +232,7 @@ C--------------------------------------------------------------
       endif
 
 
-      if(CI_simpfcn_mode) goto 99
+      if(TRIM(CIsimpFitStep) .eq. "SimpFit") goto 99
 
 
       do i=1,ntot
