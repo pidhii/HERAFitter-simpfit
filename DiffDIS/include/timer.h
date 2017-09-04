@@ -14,9 +14,16 @@ using namespace std;
 
 // ooooooooooooooooooooooooooooooooo
 class Timer_t {
-  static constexpr double sec = 1./CLOCKS_PER_SEC;
+  static
+#if __cplusplus >= 201103L
+  constexpr
+#else
+  const
+#endif
+   double sec = 1./CLOCKS_PER_SEC;
   clock_t M_start;
   
+
 public:
   // ===========
   Timer_t() {

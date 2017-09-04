@@ -59,10 +59,16 @@ C Store FCN flag in a common block:
       endif
 
 
+      if(CIdoSimpFit) then
       if(TRIM(CIsimpFitStep) .eq. "SimpFit") then
          call simpfcn(g_dummy, chi2out, parminuit, iflag)
          return
+         else if(TRIM(CIsimpFitStep) .eq. "CalcDerivatives") then
+            return
       end if
+      end if
+
+
 
 
 C Store params in a common block:
