@@ -136,6 +136,7 @@ C     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
 
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C     TODO: Remake calculation of dm1dp (redefine dm1dp_*)
       subroutine CI_calc_derivatives
       implicit none
 
@@ -176,7 +177,7 @@ c    external functions and subroutines
       common/MN7EXT/ parminuit, ALIM, BLIM
       character*10 pname(mne)
       common/MN7NAM/ pname
-
+      character*20 varformat
 *     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
       RqTrue = getPar(idxCIval)
       Rqerr  = getParerr(idxCIval)
@@ -186,12 +187,18 @@ c    external functions and subroutines
       call derivs_to_zero
       call get_Q2xys
 
-      nd_prs_iter = 1
+      nd_prs_end = 1
 *     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+      call calc_theo(g_dummy, parminuit, 4)
+      m0 = THEO
+
       do i_par = 1, mne
          if(getParerr(i_par) .eq. 0.D0) cycle
+         if(i_par .ne. idxCIval) then
          needed_pars(nd_prs_end) = i_par
-         nd_prs_iter = nd_prs_end + 1
+            nd_prs_end = nd_prs_end + 1
+         end if
+
 
          Parbuffer = getPar(i_par)
 
@@ -299,10 +306,22 @@ c                            dm1dp_m
       nd_prs_end = nd_prs_end - 1
 
       open(103, file = "CIDerivatives.txt", status = 'unknown')
-      write(103, '(A, I3)') "Npars ", mne
+      write(103, '(A, I3)') "Npars ", nd_prs_end
       write(103, '(''CIvar '', F10.7, F10.7)')
      $                    getPar(idxCIval), getParerr(idxCIval)
-      write(103, 668, advance='no') "Data Set", "Q2", "x", "y" , "m0"
+
+      write(varformat, '("(", I0, "A10)")') nd_prs_end
+      print '(A, A)', " ---  varvarformat: ", varformat
+
+      do 6600 i = 1, nd_prs_end
+ 6600    write(103,'(A10)',advance='no') pname(needed_pars(i))
+      write(103,*) ! new line
+      write(103, 668, advance='no') "'Data Set'", "'Q2'", "'x'", "'y'" 
+     $                            , "'m0'", "'d m0 / d pk'", "..."
+     $                            , "'m1'", "'d m1 / d pk'", "..."
+     $                            , "'m2'", "'d m2 / d pk'", "..."
+
+      write(103,668)
 
       do i_dat = 1, ndatasets
          do i = 1, NDATAPOINTS(i_dat)
@@ -310,20 +329,22 @@ c                            dm1dp_m
             write(103,665,advance='no') TRIM(DATASETLABEL(i_dat))
      $                                , Q2(idx), X(idx), Y(idx), m0(idx)
             do 6601 i_par = 1, nd_prs_end
- 6601          write(103,667,advance='no') dm0dp(idx, i_par)
+ 6601          write(103,667,advance='no') dm0dp(idx,needed_pars(i_par))
             write(103,666,advance='no') m1(idx)
             do 6602 i_par = 1, nd_prs_end
- 6602          write(103,667,advance='no') dm1dp(idx, i_par)
+ 6602          write(103,667,advance='no') dm1dp(idx,needed_pars(i_par))
             write(103,666,advance='no') m2(idx)
-            do 6603 i = 1, nd_prs_end
- 6603          write(103,667,advance='no') dm2dp(idx, i_par)
+            do 6603 i_par = 1, nd_prs_end
+ 6603          write(103,667,advance='no') dm2dp(idx,needed_pars(i_par))
             write(103,*) ! new line
          end do
       end do
- 668  format(A15,   A10,    A25,    A25,      A25)
+*       'Data Set''Q2''x' 'y''m0''dm0dp'...'m1''dm1dp'... 'm2''dm2dp'...
+ 668  format(A15, A10,A25,A25,A25,A25,  A4, A5,  A14,  A4, A5,  A14, A4)
  665  format(A15, F10.2, F25.20, F25.20, E25.15E3)
  666  format(E25.15E3)
- 667  format(200E25.15E3)
+ 667  format(E25.15E3)
+
       close(103)
 
       return
@@ -334,8 +355,7 @@ c                            dm1dp_m
       subroutine derivs_to_zero
       implicit none
       do i = 1, NTOT
-         m0(i) = THEO(i)
-
+         m0(i) = 0D0
          m1(i) = 0D0
          m2(i) = 0D0
          do i_par = 1, mne
@@ -374,7 +394,8 @@ c                            dm1dp_m
          if(idxY .eq. 0) then
             idxS = GetInfoIndex(i_dat, 'sqrt(S)')
             if(idxS .gt. 0) then
-               S(i_dat)=(DATASETInfo(GetInfoIndex(i_dat,'sqrt(S)'),i_dat))**2
+               S(i_dat) = (DATASETInfo(GetInfoIndex(i_dat, 'sqrt(S)')
+     $                                                       ,i_dat))**2
             endif
          endif
 
@@ -586,9 +607,11 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       include "endmini.inc"
       include "datasets.inc"
       include "CI.inc"
-      character*15 name, trash
+      character*20 dsname, trash
+
+      character*10 pnames(mne)
       double precision Q2, X, Y
-      integer II, i_dat, idx, i
+      integer II, i_dat, idx, i, i_par, npars, prespars(mne)
 
       external hf_stop
 
@@ -597,26 +620,45 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
       open(103, file = "CIDerivatives.txt", status = 'old', err = 1301)
 
-c    first two lines in trash
-      read(103,*) (trash, i=1,2)
+      read(103, *) trash, npars
+
+c    second line in trash
+      read(103,*) trash
+
+      read(103,*,end=1304,err=1304) pnames(1:npars)
+c    fourth line in trash
+      read(103,*) trash
+
+      do 1305 i = 1, npars
+ 1305    prespars(i) = name_to_idx(pnames(i))
       
       do i_dat = 1, ndatasets
          do i = 1, NDATAPOINTS(i_dat)
             idx = DATASETIDX(i_dat, i)
+            read(103,1303,end=1302,err=1304,advance='no') dsname, Q2, X
+     $                                                  , Y
+            read(103,'(E25.15E3)',end=1302,err=1304,advance='no')m0(idx)
+            do 1306 i_par = 1, npars
+ 1306          read(103,'(E25.15E3)',end=1302,err=1304,advance='no')
+     $            dm0dp(idx, prespars(i_par))
+            read(103,'(E25.15E3)',end=1302,err=1304,advance='no')m1(idx)
+            do 1307 i_par = 1, npars
+ 1307          read(103,'(E25.15E3)',end=1302,err=1304,advance='no')
+     $            dm1dp(idx, prespars(i_par))
+            read(103,'(E25.15E3)',end=1302,err=1304,advance='no')m2(idx)
+            do 1308 i_par = 1, npars - 1
+ 1308          read(103,'(E25.15E3)',end=1302,err=1304,advance='no') 
+     $            dm2dp(idx, prespars(i_par))
 
-            read(103,1303,end=1302,err=1304) name,   Q2,   X,   Y
-     $                                     , m0(idx), dm0dp(idx,:)
-     $                                     , m1(idx), dm1dp(idx,:)
-     $                                     , m2(idx), dm2dp(idx,:)
+            read(103,'(E25.15E3)',end=1302,err=1304)
+     $         dm2dp(idx, prespars(npars))
          end do
       end do
 
       close(103)
       return
-*            Name  Q2      X        Y
- 1303 format(A15, F10.2, F25.20, F25.20,
-     $  E25.15E3,200E25.15E3,E25.15E3,200E25.15E3,E25.15E3,200E25.15E3)
-*          m0       dm0dp       m1        dm1dp      m2       dm2dp
+*           dsname  Q2      X        Y     m0
+ 1303 format(A15, F10.2, F25.20, F25.20)
 
  1302 continue
       print *, "Error: unexpected end of file ""CIDerivatives.txt"""
@@ -628,7 +670,34 @@ c    first two lines in trash
 
  1304 continue
       print *, "Error while reading ""CIDerivatives.txt"""
+      do i = 1, Npars
+         print *, "dm0dp: ", dm0dp(1,prespars(i))
+      end do
       call hf_stop
+
+
+      contains
+      
+      integer function name_to_idx(pname)
+      implicit none
+
+      character*10, intent(in) :: pname
+      integer :: i
+      character*10 allnames(mne)
+      common/MN7NAM/ allnames
+      
+      external hf_stop
+
+      do i = 1, mne
+         if(TRIM(pname) .eq. TRIM(allnames(i))) then
+            name_to_idx = i
+            return
+         end if
+      end do
+      
+      print *, "Error while reading ""CIDerivatives.txt"""
+      call hf_stop
+      end function name_to_idx
 
       end
 

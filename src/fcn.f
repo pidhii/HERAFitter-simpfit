@@ -232,7 +232,14 @@ C--------------------------------------------------------------
       endif
 
 
-      if(TRIM(CIsimpFitStep) .eq. "SimpFit") goto 99
+      if(CIDoSimpFit) then
+         if(TRIM(CIsimpFitStep) .eq. "SimpFit") then
+            goto 99
+         else if(TRIM(CIsimpFitStep) .eq. "CalcDerivatives") then
+            print *, " --- skipping fcn..."
+            return
+         end if
+      end if
 
 
       do i=1,ntot

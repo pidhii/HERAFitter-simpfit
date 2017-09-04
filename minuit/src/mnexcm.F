@@ -200,11 +200,7 @@ C                                        . . . . . . migrad, minimize
          ENDIF
       ENDIF
 
-      PRINT *, " ---<=={ checking errors (IV) }==>--- "
-      CALL CI_SCAN_PARERRORS
       CALL MNMIGR(FCN,FUTIL)
-      PRINT *, " ---<=={ checking errors (V) }==>--- "
-      CALL CI_SCAN_PARERRORS
       
       CALL MNWERR
       IF (ISW(4) .GE. 1)         GO TO 5000
