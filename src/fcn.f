@@ -60,12 +60,13 @@ C Store FCN flag in a common block:
 
 
       if(CIdoSimpFit) then
-      if(TRIM(CIsimpFitStep) .eq. "SimpFit") then
-         call simpfcn(g_dummy, chi2out, parminuit, iflag)
-         return
-         else if(TRIM(CIsimpFitStep) .eq. "CalcDerivatives") then
+         if(TRIM(CIsimpFitStep) .eq. "SimpFit") then
+            call simpfcn(g_dummy, chi2out, parminuit, iflag)
             return
-      end if
+         else if(TRIM(CIsimpFitStep) .eq. "CalcDerivatives") then
+            chi2out = 42 ! hack 
+            return
+         end if
       end if
 
 

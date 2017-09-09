@@ -136,7 +136,6 @@ C     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
 
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C     TODO: Remake calculation of dm1dp (redefine dm1dp_*)
       subroutine CI_calc_derivatives
       implicit none
 
@@ -162,7 +161,6 @@ c    counters
 
 c    buffers
       double precision :: THEO_buffer(NTOT), RqTrue, Rqerr, Parbuffer
-      double precision :: dm1dp_p, dm1dp_m
 
       integer :: needed_pars(mne), nd_prs_end
 
@@ -177,7 +175,7 @@ c    external functions and subroutines
       common/MN7EXT/ parminuit, ALIM, BLIM
       character*10 pname(mne)
       common/MN7NAM/ pname
-      character*20 varformat
+      character*3 num
 *     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
       RqTrue = getPar(idxCIval)
       Rqerr  = getParerr(idxCIval)
@@ -199,10 +197,8 @@ c    external functions and subroutines
             nd_prs_end = nd_prs_end + 1
          end if
 
-
          Parbuffer = getPar(i_par)
 
-c                          dm0/dp, dm2/dp, m1, m2
          
          if(i_par .ne. idxCIval) then
             parminuit(i_par) = Parbuffer + 0.5*getParerr(i_par)
@@ -224,10 +220,8 @@ c                          dm0/dp, dm2/dp, m1, m2
             do i = 1, NDATAPOINTS(i_dat)
                idx = DATASETIDX(i_dat, i)
                if(i_par .ne. idxCIval) then
-                  dm0dp(idx,i_par) = (THEO_buffer(idx) - THEO(idx))/
-     $                                      getParerr(i_par)
-     
-                  dm2dp(idx, i_par) = 2.*(THEO(idx) - THEO_buffer(idx))
+                  theta_0(idx,i_par) = (THEO_buffer(idx) - THEO(idx))/
+     $                                        getParerr(i_par)
                else if(doCI) then
                   m1(idx) = (THEO_buffer(idx) - THEO(idx))/
      $                          (2.*getParerr(i_par))
@@ -239,58 +233,44 @@ c                          dm0/dp, dm2/dp, m1, m2
 
          if(.not. doCI) cycle
          if(i_par .eq. idxCIval) goto 663
-c               ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-c                                dm1/dp, dm2/dp
 
-c          /*  dm1/dp = (dm1dp_p - dm1dp_m) / dp,                *
-c           *  where dm1dp_p = (m(p+, Rq+) - m(p+, Rq-)) / dRq,  *
-c           *        dm1dp_m = (m(p-, Rq+) - m(p-, Rq-)) / dRq.  */
+c               . . . . . . . . . . . . . . . . . . . . . . 
 
-c                              dm1dp_p
-
-         parminuit(i_par) = Parbuffer + 0.5*getParerr(i_par)
-         
          parminuit(idxCIval) = RqTrue + Rqerr
+         
+         parminuit(i_par) = Parbuffer + 0.5*getParerr(i_par)
          call calc_theo(g_dummy, parminuit, 4)
 
          THEO_buffer = THEO
 
-         parminuit(idxCIval) = RqTrue - Rqerr
+         parminuit(i_par) = Parbuffer - 0.5*getParerr(i_par)
          call calc_theo(g_dummy, parminuit, 4)
          
          do i_dat = 1, ndatasets
             do i = 1, NDATAPOINTS(i_dat)
                idx = DATASETIDX(i_dat, i)
-               dm1dp_p = (THEO_buffer(idx) - THEO(idx))/(2.*Rqerr)
-     
-               dm2dp(idx, i_par) = dm2dp(idx, i_par) + THEO(idx)
-     $                           + THEO_buffer(idx)
+               theta_p = (THEO_buffer(idx) - THEO(idx)) /
+     $                           getParerr(i_par)
             end do
          end do
 
 c               . . . . . . . . . . . . . . . . . . . . . . 
-c                            dm1dp_m
 
-         parminuit(i_par) = Parbuffer - getParerr(i_par)
+         parminuit(idxCIval) = RqTrue - Rqerr
 
-         parminuit(idxCIval) = RqTrue + Rqerr
+         parminuit(i_par) = Parbuffer + 0.5*getParerr(i_par)
          call calc_theo(g_dummy, parminuit, 4)
 
          THEO_buffer = THEO
 
-         parminuit(idxCIval) = RqTrue - Rqerr
+         parminuit(i_par) = Parbuffer - 0.5*getParerr(i_par)
          call calc_theo(g_dummy, parminuit, 4)
 
          do i_dat = 1, ndatasets
             do i = 1, NDATAPOINTS(i_dat)
                idx = DATASETIDX(i_dat, i)
-               dm1dp_m = (THEO_buffer(idx) - THEO(idx))/(2.*Rqerr)
-               dm1dp(idx, i_par) = (dm1dp_p - dm1dp_m)/
-     $                               getParerr(i_par)
-
-               dm2dp(idx,i_par) = (dm2dp(idx,i_par) 
-     $                                  - THEO(idx) + THEO_buffer(idx))/
-     $                             (2. * Rqerr**2 * getParerr(i_par))
+               theta_m = (THEO_buffer(idx) - THEO(idx)) /
+     $                            getParerr(i_par)
             end do
          end do
 
@@ -301,46 +281,62 @@ c                            dm1dp_m
       end do
 *     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
 
- 664  continue
+      theta_1 = (theta_p - theta_m) / (2.*Rqerr)
+      theta_2 = (theta_p + theta_m - 2.*theta_0) / (2.*Rqerr)
 
+
+ 664  continue
       nd_prs_end = nd_prs_end - 1
 
       open(103, file = "CIDerivatives.txt", status = 'unknown')
+*     - - - - - -
       write(103, '(A, I3)') "Npars ", nd_prs_end
+*     - - - - - -
       write(103, '(''CIvar '', F10.7, F10.7)')
      $                    getPar(idxCIval), getParerr(idxCIval)
-
-      write(varformat, '("(", I0, "A10)")') nd_prs_end
-      print '(A, A)', " ---  varvarformat: ", varformat
-
+*     - - - - - -
       do 6600 i = 1, nd_prs_end
  6600    write(103,'(A10)',advance='no') pname(needed_pars(i))
       write(103,*) ! new line
-      write(103, 668, advance='no') "'Data Set'", "'Q2'", "'x'", "'y'" 
-     $                            , "'m0'", "'d m0 / d pk'", "..."
-     $                            , "'m1'", "'d m1 / d pk'", "..."
-     $                            , "'m2'", "'d m2 / d pk'", "..."
+*     - - - - - -
+      write(103, 668, advance='no') "'Data Set'", "'Q2'", "'x'", "'y'"
+      do i = 1, 3
+         select case (i)
+            case(1)
+               write(103, '(A25)', advance='no') "'m0'"
+               num = "0"
+            case(2)
+               write(103, '(A25)', advance='no') "'m1'"
+               num = "1"
+            case(3)
+               num = "2"
+               write(103, '(A25)', advance='no') "'m2'"
+         end select
 
-      write(103,668)
-
+         do 6604 i_par = 1, nd_prs_end
+ 6604       write(103, '(A25)', advance='no') "'theta_"//TRIM(num)//
+     $                         "_"//TRIM(pname(needed_pars(i_par)))//"'"
+      end do
+      write(103,*) ! new line
+*     - - - - - -
       do i_dat = 1, ndatasets
          do i = 1, NDATAPOINTS(i_dat)
             idx = DATASETIDX(i_dat, i)
             write(103,665,advance='no') TRIM(DATASETLABEL(i_dat))
      $                                , Q2(idx), X(idx), Y(idx), m0(idx)
             do 6601 i_par = 1, nd_prs_end
- 6601          write(103,667,advance='no') dm0dp(idx,needed_pars(i_par))
+ 6601          write(103,667,advance='no') theta_0(idx,needed_pars(i_par))
             write(103,666,advance='no') m1(idx)
             do 6602 i_par = 1, nd_prs_end
- 6602          write(103,667,advance='no') dm1dp(idx,needed_pars(i_par))
+ 6602          write(103,667,advance='no') theta_1(idx,needed_pars(i_par))
             write(103,666,advance='no') m2(idx)
             do 6603 i_par = 1, nd_prs_end
- 6603          write(103,667,advance='no') dm2dp(idx,needed_pars(i_par))
+ 6603          write(103,667,advance='no') theta_2(idx,needed_pars(i_par))
             write(103,*) ! new line
          end do
       end do
-*       'Data Set''Q2''x' 'y''m0''dm0dp'...'m1''dm1dp'... 'm2''dm2dp'...
- 668  format(A15, A10,A25,A25,A25,A25,  A4, A5,  A14,  A4, A5,  A14, A4)
+*            'Data Set' 'Q2' 'x'  'y'
+ 668  format(    A15,   A10, A25, A25)
  665  format(A15, F10.2, F25.20, F25.20, E25.15E3)
  666  format(E25.15E3)
  667  format(E25.15E3)
@@ -359,9 +355,9 @@ c                            dm1dp_m
          m1(i) = 0D0
          m2(i) = 0D0
          do i_par = 1, mne
-            dm0dp(i, i_par) = 0D0
-            dm1dp(i, i_par) = 0D0
-            dm2dp(i, i_par) = 0D0
+            theta_0(i, i_par) = 0D0
+            theta_1(i, i_par) = 0D0
+            theta_2(i, i_par) = 0D0
          enddo
       enddo
       end subroutine derivs_to_zero
@@ -428,24 +424,23 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       external CI_read_Rq
 
 
-      open(103, file = "CISimpFitData.txt", status = 'old', err = 263)
+      open(103, file = "CISimpFitData.txt", status = 'old', err = 2631)
       do
-         read(103, *, end = 266) parnum, parname, parval, parerr
+         read(103, *, end = 2661) parnum, parname, parval, parerr
          if(TRIM(parname) .eq. "CI_Rq") cycle
 
          if(read_pars)     U(parnum) = parval
          if(read_errors)   WERR(NIOFEX(parnum)) = parerr
       end do
 
- 266  continue
-      close(103)
+ 2661 close(103)
 
       call CI_read_Rq
 
       return
 
 
- 263  print *, "Error: file 'CISimpFitData.txt' not found."
+ 2631 print *, "Error: file 'CISimpFitData.txt' not found."
       close(103)
       call hf_stop
 
@@ -462,9 +457,9 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       external CI_try_read_Rq
 
 
-      open(103, file = "CISimpFitData.txt", status = 'old', err = 263)
+      open(103, file = "CISimpFitData.txt", status = 'old', err = 2632)
       do
-         read(103, *, end = 266) parnum, parname, parval, parerr
+         read(103, *, end = 2662) parnum, parname, parval, parerr
          if(WERR(NIOFEX(parnum)) .ne. 0d0) cycle
          if(TRIM(parname) .eq. "CI_Rq" .and.WERR(NIOFEX(parnum)).eq.0d0)
      $      call CI_try_read_Rq
@@ -472,9 +467,8 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
          WERR(NIOFEX(parnum)) = parerr
       end do
 
- 263  print *, "CI: file 'CISimpFitData.txt' not found."
- 266  continue
-      close(103)
+ 2632 print *, "CI: file 'CISimpFitData.txt' not found."
+ 2662 close(103)
 
       end
 
@@ -496,19 +490,17 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       endif
 
 
-      open(103, file = "CIval_in.txt", status = 'old', err = 301)
+      open(103, file = "CIval_in.txt", status = 'old', err = 3012)
       read(103, *) parnum, parname, parval, parerr
       call setParValue(idxCIval, parval)
       call setParError(idxCIval, parerr)
-      goto 306
+      goto 3062
 
- 301  continue
-      print *, "Error: file 'CIval_in.txt' not found."
+ 3012  print *, "Error: file 'CIval_in.txt' not found."
       close(103)
       call hf_stop
 
- 306  continue
-      close(103)
+ 3062  close(103)
 
       end
 
@@ -523,14 +515,14 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       double precision parval, parerr
 
 
-      open(103, file = "CIval_in.txt", status = 'old', err = 301)
+      open(103, file = "CIval_in.txt", status = 'old', err = 3023)
       read(103, *) parnum, parname, parval, parerr
       call setParError(idxCIval, parerr)
-      goto 306
+      goto 3063
 
- 301  continue
+ 3023  continue
       print *, "CI: file 'CIval_in.txt' not found."
- 306  continue
+ 3063  continue
       close(103)
 
       end
@@ -581,9 +573,9 @@ c     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
                else
                   THEO(idx) = THEO(idx) + 
      $               (
-     $                  dm0dp(idx,i_par) +
-     $                  dm1dp(idx,i_par)*getPar(idxCIval) +
-     $                  dm2dp(idx,i_par)*getPar(idxCIval)**2
+     $                  theta_0(idx,i_par) +
+     $                  theta_1(idx,i_par)*getPar(idxCIval) +
+     $                  theta_2(idx,i_par)*getPar(idxCIval)**2
      $               ) * (getPar(i_par) - p0(i_par))
                end if
             end do
@@ -640,18 +632,18 @@ c    fourth line in trash
             read(103,'(E25.15E3)',end=1302,err=1304,advance='no')m0(idx)
             do 1306 i_par = 1, npars
  1306          read(103,'(E25.15E3)',end=1302,err=1304,advance='no')
-     $            dm0dp(idx, prespars(i_par))
+     $            theta_0(idx, prespars(i_par))
             read(103,'(E25.15E3)',end=1302,err=1304,advance='no')m1(idx)
             do 1307 i_par = 1, npars
  1307          read(103,'(E25.15E3)',end=1302,err=1304,advance='no')
-     $            dm1dp(idx, prespars(i_par))
+     $            theta_1(idx, prespars(i_par))
             read(103,'(E25.15E3)',end=1302,err=1304,advance='no')m2(idx)
             do 1308 i_par = 1, npars - 1
  1308          read(103,'(E25.15E3)',end=1302,err=1304,advance='no') 
-     $            dm2dp(idx, prespars(i_par))
+     $            theta_2(idx, prespars(i_par))
 
             read(103,'(E25.15E3)',end=1302,err=1304)
-     $         dm2dp(idx, prespars(npars))
+     $         theta_2(idx, prespars(npars))
          end do
       end do
 
@@ -671,7 +663,7 @@ c    fourth line in trash
  1304 continue
       print *, "Error while reading ""CIDerivatives.txt"""
       do i = 1, Npars
-         print *, "dm0dp: ", dm0dp(1,prespars(i))
+         print *, "theta_0: ", theta_0(1,prespars(i))
       end do
       call hf_stop
 
