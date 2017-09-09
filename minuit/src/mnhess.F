@@ -22,6 +22,13 @@ CC        of course come as a free side effect, but with a smaller
 CC        step size in order to obtain a known accuracy.
 CC
 #include "./d506cm.inc"
+     
+      EXTERNAL cwrite_double, cread_double, cwaitpid, ckill, cclose
+      INTEGER cfork
+
+      INTEGER pid
+      INTEGER pipefd
+
       EXTERNAL FCN,FUTIL
       DIMENSION YY(MNI)
       LOGICAL LDEBUG
@@ -103,11 +110,26 @@ C           take two steps
          X(I) = XTF + D
          CALL MNINEX(X)
          NPARX = NPAR
-         CALL FCN(NPARX,GIN,FS1,U,4,FUTIL)
-         NFCN = NFCN + 1
-         X(I) = XTF - D
-         CALL MNINEX(X)
-         CALL FCN(NPARX,GIN,FS2,U,4,FUTIL)
+
+         pid = cfork(pipefd)
+         if(pid .eq. 0) then
+            CALL FCN(NPARX,GIN,FS1,U,4,FUTIL)
+
+            call cwrite_double(pipefd, FS1)
+            do
+               continue
+            end do
+            print*, "||||||||||||||||||||||| CHILD HAS SKIPED THE LOOP"
+         else
+            NFCN = NFCN + 1
+            X(I) = XTF - D
+            CALL MNINEX(X)
+            CALL FCN(NPARX,GIN,FS2,U,4,FUTIL)
+
+            call cread_double(pipefd, FS1);
+            call cclose(pipefd)
+            call ckill(pid)
+         end if
          NFCN = NFCN + 1
          X(I) = XTF
          SAG = 0.5*(FS1+FS2-2.0*AMIN)
@@ -161,7 +183,7 @@ C                                     refine the first derivatives
       DCOVAR = 0.
 C                                        . . . .  off-diagonal elements
       IF (NPAR .EQ. 1)  GO TO 214
-      DO 200 I= 2, NPAR		!*** error in CERNLIB version: must start with I=2 not I=1 (J. Pumplin 9/00) ***
+      DO 200 I= 2, NPAR    !*** error in CERNLIB version: must start with I=2 not I=1 (J. Pumplin 9/00) ***
       DO 180 J= 1, I-1
       XTI = X(I)
       XTJ = X(J)

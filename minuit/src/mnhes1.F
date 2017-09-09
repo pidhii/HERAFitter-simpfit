@@ -18,6 +18,13 @@ CC      Called from MNHESS and MNGRAD
 CC      Calculate first derivatives (GRD) and uncertainties (DGRD)
 CC         and appropriate step sizes GSTEP
 #include "./d506cm.inc"
+     
+      EXTERNAL cwrite_double, cread_double, cwaitpid, ckill, cclose
+      INTEGER cfork
+
+      INTEGER pid
+      INTEGER pipefd
+
       EXTERNAL FCN,FUTIL
       LOGICAL LDEBUG
       CHARACTER CBF1*22
@@ -40,13 +47,28 @@ C                                     main loop over parameters
       CHGOLD = 10000.
 C                                       iterate reducing step size
       DO 50 ICYC= 1, NCYC
-      X(I) = XTF + D
-      CALL MNINEX(X)
-      CALL FCN(NPARX,GIN,FS1,U,4,FUTIL)
-      NFCN = NFCN + 1
-      X(I) = XTF - D
-      CALL MNINEX(X)
-      CALL FCN(NPARX,GIN,FS2,U,4,FUTIL)
+
+      pid = cfork(pipefd)
+      if(pid .eq. 0) then
+         X(I) = XTF + D
+         CALL MNINEX(X)
+         CALL FCN(NPARX,GIN,FS1,U,4,FUTIL)
+       
+         call cwrite_double(pipefd, FS1)
+         do
+            continue
+         end do
+         print*, "||||||||||||||||||||||| CHILD HAS SKIPED THE LOOP"
+      else
+         NFCN = NFCN + 1
+         X(I) = XTF - D
+         CALL MNINEX(X)
+         CALL FCN(NPARX,GIN,FS2,U,4,FUTIL)
+
+         call cread_double(pipefd, FS1);
+         call cclose(pipefd)
+         call ckill(pid)
+      end if  
       NFCN = NFCN + 1
       X(I) = XTF
 C                                       check if step sizes appropriate

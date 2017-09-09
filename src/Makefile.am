@@ -13,7 +13,7 @@ evolution.f mc_errors.f ep_jets_fastnlo.f dipole.f store_h1qcdfunc.f\
 dis_sigma.f  dataset_tools.f theory_dispatcher.f dy_cc_sigma.f pp_jets_applgrid.f error_logging.f \
 getncxskt.f Getgridkt.f GetDummyXsection.f \
 GetDiffDisXsection.f FixModelParams.f reweighting.f prep_corr.f GetPDFUncType.f \
-CI_Derivatives.f
+CI_Derivatives.f fork.c
 
 # WS 2013-01-19 for the Offset method
 FitPDF_SOURCES += offset_fns.f g_offset.cc

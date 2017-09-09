@@ -36,6 +36,13 @@ CC        according to whether ISW(3) is zero or one.
 CC
 #include "./d506cm.inc"
       EXTERNAL FCN,FUTIL
+      
+      EXTERNAL cwrite_double, cread_double, cwaitpid, ckill, cclose
+      INTEGER cfork
+
+      INTEGER pid
+      INTEGER pipefd
+
       LOGICAL LDEBUG
       CHARACTER CBF1*22
       NPARX = NPAR
@@ -109,15 +116,31 @@ C                 end of iterations if step change less than factor 2
 C         take step positive
       GSTEP(I) = SIGN(STEP, GSTEP(I))
       STEPB4 = STEP
-      X(I) = XTF + STEP
-      CALL MNINEX(X)
-      CALL FCN(NPARX,GIN,FS1,U,4,FUTIL)
-      NFCN=NFCN+1
+      
+      pid = cfork(pipefd)
+      print*,"<><><><>><><><><><> pipefd: ", pipefd
+      IF(pid .eq. 0) THEN
+         X(I) = XTF + STEP
+         CALL MNINEX(X)
+         CALL FCN(NPARX,GIN,FS1,U,4,FUTIL)
+
+         call cwrite_double(pipefd, FS1)
+         do
+            continue
+         end do
+         print*, "||||||||||||||||||||||| CHILD HAS SKIPED THE LOOP"
+      ELSE
 C         take step negative
-      X(I) = XTF - STEP
-      CALL MNINEX(X)
-      CALL FCN(NPARX,GIN,FS2,U,4,FUTIL)
-      NFCN=NFCN+1
+         X(I) = XTF - STEP
+         CALL MNINEX(X)
+         CALL FCN(NPARX,GIN,FS2,U,4,FUTIL)
+         NFCN=NFCN+1
+
+         call cread_double(pipefd, FS1);
+         call cclose(pipefd)
+         call ckill(pid)
+      ENDIF
+      
       GRBFOR = GRD(I)
       GRD(I) = (FS1-FS2)/(2.0*STEP)
       G2(I) = (FS1+FS2-2.0*AMIN)/(STEP**2)
