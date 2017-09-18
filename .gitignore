@@ -1,0 +1,10 @@
+*.swp
+*.swo
+*.o
+*.a
+Makefile
+.deps
+*.log
+PATCHES
+*.svn*
+theoryfiles

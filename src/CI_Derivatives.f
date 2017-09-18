@@ -11,49 +11,6 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       end
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~      
-      double precision function getPar(i_par)
-      include "d506dp.inc"
-      include "d506cm.inc"
-      
-      integer i_par
-
-      getPar = U(i_par)
-      end
-
-C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      double precision function getParerr(i_par)
-      include "d506dp.inc"
-      include "d506cm.inc"
-
-      integer i_par
-
-      getParerr = WERR(NIOFEX(i_par))
-      end
-
-C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      subroutine setParValue(i_par, val)
-      include "d506dp.inc"
-      include "d506cm.inc"
-      
-      integer i_par
-      double precision val
-
-      U(i_par) = val
-      end
-
-C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      subroutine setParError(i_par, err)
-      include "d506dp.inc"
-      include "d506cm.inc"
-      
-      integer i_par
-      double precision err
-
-      WERR(NIOFEX(i_par)) = err
-      end
-
-
-C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       subroutine calc_theo(g_dummy, parminuit, iflag)
       implicit none
 
@@ -169,16 +126,27 @@ c    external functions and subroutines
       external :: calc_theo
 
       integer, parameter :: MNI = 50
-      double precision GRD(MNI),G2(MNI),GSTEP(MNI),g_dummy(MNE),DGRD(MNI)
+
+      double precision GRD(50),G2(50),GSTEP(50),g_dummy(200),DGRD(50)
       common/MN7DER/ GRD, G2, GSTEP, g_dummy, DGRD
-      double precision :: parminuit(MNE), ALIM(MNE), BLIM(MNE)
+      
+      double precision :: parminuit(200), ALIM(200), BLIM(200)
       common/MN7EXT/ parminuit, ALIM, BLIM
+      
       character*10 pname(mne)
       common/MN7NAM/ pname
+      
       character*3 num
+
+      double precision WERR(50), ern(50), erp(50), globc(50)
+      common/MN7ERR/ erp, ern, WERR, globc
+
+      integer nvarl(200), NIOFEX(200), neofix(50)
+      common/MN7INX/ nvarl, NIOFEX, neofix
+
 *     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
-      RqTrue = getPar(idxCIval)
-      Rqerr  = getParerr(idxCIval)
+      RqTrue = parminuit(idxCIval)
+      Rqerr  = WERR(NIOFEX(idxCIval))
 
 
       call check_CIvarval
@@ -187,32 +155,39 @@ c    external functions and subroutines
 
       nd_prs_end = 1
 *     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+      THEO = THEO*0D0
       call calc_theo(g_dummy, parminuit, 4)
       m0 = THEO
 
       do i_par = 1, mne
-         if(getParerr(i_par) .eq. 0.D0) cycle
+         if(NIOFEX(i_par) .eq. 0) cycle
+         if(WERR(NIOFEX(i_par)) .eq. 0D0) cycle
+
          if(i_par .ne. idxCIval) then
          needed_pars(nd_prs_end) = i_par
             nd_prs_end = nd_prs_end + 1
          end if
 
-         Parbuffer = getPar(i_par)
+         print*, " ~ ~ ~ ~ ~ ~ ~ ~ ~ "//TRIM(pname(i_par))//
+     $           " ~ ~ ~ ~ ~ ~ ~ ~ ~ "
+         print*, "parerr:", WERR(NIOFEX(i_par))
+
+         Parbuffer = parminuit(i_par)
 
          
          if(i_par .ne. idxCIval) then
-            parminuit(i_par) = Parbuffer + 0.5*getParerr(i_par)
+            parminuit(i_par) = Parbuffer + 0.5D0*WERR(NIOFEX(i_par))
          else
-            parminuit(i_par) = Parbuffer + getParerr(i_par)
+            parminuit(i_par) = Parbuffer + WERR(NIOFEX(i_par))
          endif
          call calc_theo(g_dummy, parminuit, 4)
          
         THEO_buffer = THEO
 
          if(i_par .ne. idxCIval) then
-            parminuit(i_par) = Parbuffer - 0.5*getParerr(i_par)
+            parminuit(i_par) = Parbuffer - 0.5D0*WERR(NIOFEX(i_par))
          else
-            parminuit(i_par) = Parbuffer - getParerr(i_par)
+            parminuit(i_par) = Parbuffer - WERR(NIOFEX(i_par))
          endif
          call calc_theo(g_dummy, parminuit, 4)
          
@@ -220,37 +195,35 @@ c    external functions and subroutines
             do i = 1, NDATAPOINTS(i_dat)
                idx = DATASETIDX(i_dat, i)
                if(i_par .ne. idxCIval) then
-                  theta_0(idx,i_par) = (THEO_buffer(idx) - THEO(idx))/
-     $                                        getParerr(i_par)
+                  theta_0(idx, i_par) = (THEO_buffer(idx) - THEO(idx))/
+     $                                        WERR(NIOFEX(i_par))
                else if(doCI) then
                   m1(idx) = (THEO_buffer(idx) - THEO(idx))/
-     $                          (2.*getParerr(i_par))
-                  m2(idx) = (THEO(idx) + THEO_buffer(idx) - 2.*m0(idx))/
-     $                                   (2.*Rqerr**2)
+     $                                (2D0*Rqerr)
+                  m2(idx) = (THEO(idx) + THEO_buffer(idx) -2D0*m0(idx))/
+     $                                   (2D0*(Rqerr**2))
                endif
             end do
          end do
 
-         if(.not. doCI) cycle
-         if(i_par .eq. idxCIval) goto 663
-
+         if(i_par .eq. idxCIval .or. .not. doCI) goto 663
 c               . . . . . . . . . . . . . . . . . . . . . . 
 
          parminuit(idxCIval) = RqTrue + Rqerr
          
-         parminuit(i_par) = Parbuffer + 0.5*getParerr(i_par)
+         parminuit(i_par) = Parbuffer + 0.5D0*WERR(NIOFEX(i_par))
          call calc_theo(g_dummy, parminuit, 4)
 
          THEO_buffer = THEO
 
-         parminuit(i_par) = Parbuffer - 0.5*getParerr(i_par)
+         parminuit(i_par) = Parbuffer - 0.5D0*WERR(NIOFEX(i_par))
          call calc_theo(g_dummy, parminuit, 4)
          
          do i_dat = 1, ndatasets
             do i = 1, NDATAPOINTS(i_dat)
                idx = DATASETIDX(i_dat, i)
-               theta_p = (THEO_buffer(idx) - THEO(idx)) /
-     $                           getParerr(i_par)
+               theta_p(idx, i_par) = (THEO_buffer(idx) - THEO(idx)) /
+     $                                      WERR(NIOFEX(i_par))
             end do
          end do
 
@@ -258,19 +231,19 @@ c               . . . . . . . . . . . . . . . . . . . . . .
 
          parminuit(idxCIval) = RqTrue - Rqerr
 
-         parminuit(i_par) = Parbuffer + 0.5*getParerr(i_par)
+         parminuit(i_par) = Parbuffer + 0.5D0*WERR(NIOFEX(i_par))
          call calc_theo(g_dummy, parminuit, 4)
 
          THEO_buffer = THEO
 
-         parminuit(i_par) = Parbuffer - 0.5*getParerr(i_par)
+         parminuit(i_par) = Parbuffer - 0.5D0*WERR(NIOFEX(i_par))
          call calc_theo(g_dummy, parminuit, 4)
 
          do i_dat = 1, ndatasets
             do i = 1, NDATAPOINTS(i_dat)
                idx = DATASETIDX(i_dat, i)
-               theta_m = (THEO_buffer(idx) - THEO(idx)) /
-     $                            getParerr(i_par)
+               theta_m(idx, i_par) = (THEO_buffer(idx) - THEO(idx)) /
+     $                                     WERR(NIOFEX(i_par))
             end do
          end do
 
@@ -281,11 +254,12 @@ c               . . . . . . . . . . . . . . . . . . . . . .
       end do
 *     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
 
-      theta_1 = (theta_p - theta_m) / (2.*Rqerr)
-      theta_2 = (theta_p + theta_m - 2.*theta_0) / (2.*Rqerr)
+      if(doCI) then
+         theta_1 = (theta_p - theta_m) / (2.D0*Rqerr)
+         theta_2 = (theta_p + theta_m - theta_0*2.D0) / (2.D0*Rqerr**2)
+      end if
 
 
- 664  continue
       nd_prs_end = nd_prs_end - 1
 
       open(103, file = "CIDerivatives.txt", status = 'unknown')
@@ -293,7 +267,7 @@ c               . . . . . . . . . . . . . . . . . . . . . .
       write(103, '(A, I3)') "Npars ", nd_prs_end
 *     - - - - - -
       write(103, '(''CIvar '', F10.7, F10.7)')
-     $                    getPar(idxCIval), getParerr(idxCIval)
+     $                    parminuit(idxCIval), WERR(NIOFEX(idxCIval))
 *     - - - - - -
       do 6600 i = 1, nd_prs_end
  6600    write(103,'(A10)',advance='no') pname(needed_pars(i))
@@ -335,9 +309,9 @@ c               . . . . . . . . . . . . . . . . . . . . . .
             write(103,*) ! new line
          end do
       end do
-*            'Data Set' 'Q2' 'x'  'y'
- 668  format(    A15,   A10, A25, A25)
- 665  format(A15, F10.2, F25.20, F25.20, E25.15E3)
+*            'Data Set' 'Q2'  'x'    'y'
+ 668  format(    A15,   A10,  A25,   A25) !    m0
+ 665  format(    A15,  F10.2,F25.20,F25.20, E25.15E3)
  666  format(E25.15E3)
  667  format(E25.15E3)
 
@@ -418,10 +392,23 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       logical, intent(in) :: read_pars, read_errors
 
-      integer parnum
+      integer parnum, i
       character*10 parname
-      double precision parval, parerr
-      external CI_read_Rq
+      real parval, parerr
+      external CI_read_Rq, mnpout
+
+      integer i_int
+      character*32 mn_pname
+      double precision lolim, uplim
+
+   
+      if(read_pars) then
+         do i = 1, mne
+            U(i) = 0D0
+            if(i .gt. 50) cycle
+            WERR(i) = 0D0
+         end do
+      end if
 
 
       open(103, file = "CISimpFitData.txt", status = 'old', err = 2631)
@@ -429,11 +416,14 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
          read(103, *, end = 2661) parnum, parname, parval, parerr
          if(TRIM(parname) .eq. "CI_Rq") cycle
 
-         if(read_pars)     U(parnum) = parval
-         if(read_errors)   WERR(NIOFEX(parnum)) = parerr
+         if(read_pars) U(parnum) = parval
+         if(read_errors.and.parerr.ne.0D0.and.NIOFEX(parnumm).ne.0) 
+     $      WERR(NIOFEX(parnum))=parerr
+
       end do
 
- 2661 close(103)
+ 2661 continue
+      close(103)
 
       call CI_read_Rq
 
@@ -447,30 +437,30 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       end
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      subroutine CI_read_missing_parerrors
-      include "d506dp.inc"
-      include "d506cm.inc"
-
-      integer parnum
-      character*10 parname
-      double precision parval, parerr
-      external CI_try_read_Rq
-
-
-      open(103, file = "CISimpFitData.txt", status = 'old', err = 2632)
-      do
-         read(103, *, end = 2662) parnum, parname, parval, parerr
-         if(WERR(NIOFEX(parnum)) .ne. 0d0) cycle
-         if(TRIM(parname) .eq. "CI_Rq" .and.WERR(NIOFEX(parnum)).eq.0d0)
-     $      call CI_try_read_Rq
-
-         WERR(NIOFEX(parnum)) = parerr
-      end do
-
- 2632 print *, "CI: file 'CISimpFitData.txt' not found."
- 2662 close(103)
-
-      end
+*      subroutine CI_read_missing_parerrors
+*      include "d506dp.inc"
+*      include "d506cm.inc"
+*
+*      integer parnum
+*      character*10 parname
+*      double precision parval, parerr
+*      external CI_try_read_Rq
+*
+*
+*      open(103, file = "CISimpFitData.txt", status = 'old', err = 2632)
+*      do
+*         read(103, *, end = 2662) parnum, parname, parval, parerr
+*         if(WERR(NIOFEX(parnum)) .ne. 0d0) cycle
+*         if(TRIM(parname) .eq. "CI_Rq" .and.WERR(NIOFEX(parnum)).eq.0d0)
+*     $      call CI_try_read_Rq
+*
+*         WERR(NIOFEX(parnum)) = parerr
+*      end do
+*
+* 2632 print *, "CI: file 'CISimpFitData.txt' not found."
+* 2662 close(103)
+*
+*      end
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       subroutine CI_read_Rq
@@ -480,52 +470,71 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       integer parnum
       character*10 parname
-      double precision parval, parerr
+      double precision parval
+      double precision parerr
+
+      double precision WERR(50), ern(50), erp(50), globc(50)
+      common/MN7ERR/ erp, ern, WERR, globc
+
+      integer nvarl(200), NIOFEX(200), neofix(50)
+      common/MN7INX/ nvarl, NIOFEX, neofix
+
+      double precision :: parminuit(200), ALIM(200), BLIM(200)
+      common/MN7EXT/ parminuit, ALIM, BLIM
+
+      external setParValue, setParError
 
 
       if(.not.doCI) then
-         call setParValue(idxCIval, 0D0)
-         call setParError(idxCIval, 0D0)
+         parminuit(idxCIval) = 0D0
+         WERR(NIOFEX(idxCIval)) = 0D0
          return
       endif
 
+      open(104, file = "CIval_in.txt", status = 'old', err = 3012)
+      read(104, *) parnum, parname, parval, parerr
+      parminuit(idxCIval) = parval
+      WERR(NIOFEX(idxCIval)) =  parerr
+      close(104)
+      return
 
-      open(103, file = "CIval_in.txt", status = 'old', err = 3012)
-      read(103, *) parnum, parname, parval, parerr
-      call setParValue(idxCIval, parval)
-      call setParError(idxCIval, parerr)
-      goto 3062
-
- 3012  print *, "Error: file 'CIval_in.txt' not found."
-      close(103)
+ 3012 print *, "Error: file 'CIval_in.txt' not found."
+      close(104)
       call hf_stop
-
- 3062  close(103)
 
       end
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      subroutine CI_try_read_Rq
-      implicit none
-
-      include "steering.inc"
-
-      integer parnum
-      character*10 parname
-      double precision parval, parerr
-
-
-      open(103, file = "CIval_in.txt", status = 'old', err = 3023)
-      read(103, *) parnum, parname, parval, parerr
-      call setParError(idxCIval, parerr)
-      goto 3063
-
- 3023  continue
-      print *, "CI: file 'CIval_in.txt' not found."
- 3063  continue
-      close(103)
-
-      end
+*      subroutine CI_try_read_Rq
+*      implicit none
+*
+*      include "steering.inc"
+*
+*      integer parnum
+*      character*10 parname
+*      double precision parval, parerr
+*      
+*      double precision WERR(50), ern(50), erp(50), globc(50)
+*      common/MN7ERR/ erp, ern, WERR, globc
+*
+*      integer nvarl(200), NIOFEX(200), neofix(50)
+*      common/MN7INX/ nvarl, NIOFEX, neofix
+*
+*      double precision :: parminuit(200), ALIM(200), BLIM(200)
+*      common/MN7EXT/ parminuit, ALIM, BLIM
+*
+*
+*      open(103, file = "CIval_in.txt", status = 'old', err = 3023)
+*      read(103, *) parnum, parname, parval, parerr
+*      WERR(NIOFEX(idxCIval)) = parerr
+*      goto 3063
+*
+* 3023  continue
+*      print *, "CI: file 'CIval_in.txt' not found."
+* 3063  continue
+*      close(103)
+*
+*      end
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       subroutine simpfcn(g_dummy, chi2out, parminuit, iflag)
@@ -551,32 +560,40 @@ c    counters
       integer i, i_par, i_dat, idx
 
 c    external functions and subroutines
-      double precision getPar, getParerr
       external CI_read_missing_parerrors
       double precision chi2data_theory
 
+      double precision WERR(50), ern(50), erp(50), globc(50)
+      common/MN7ERR/ erp, ern, WERR, globc
+
+      integer nvarl(200), NIOFEX(200), neofix(50)
+      common/MN7INX/ nvarl, NIOFEX, neofix
 c     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
       print '('' --- simpfcn...'')'
 
-
-      THEO = m0
+      THEO = THEO*0.
+      do i = 1, NTOT
+         THEO(i) = m0(i)
+      end do
 
       do i_par = 1, mne
+         if(NIOFEX(i_par) .eq. 0) cycle
+
          do i_dat = 1, ndatasets
             do i = 1, NDATAPOINTS(i_dat)
                idx = DATASETIDX(i_dat, i)
 
                if(i_par .eq. idxCIval) then
                   THEO(idx) = THEO(idx) +
-     $                            m1(idx)*getPar(idxCIval) +
-     $                            m2(idx)*getPar(idxCIval)**2
+     $                        m1(idx)*parminuit(idxCIval) +
+     $                        m2(idx)*parminuit(idxCIval)**2
                else
                   THEO(idx) = THEO(idx) + 
      $               (
      $                  theta_0(idx,i_par) +
-     $                  theta_1(idx,i_par)*getPar(idxCIval) +
-     $                  theta_2(idx,i_par)*getPar(idxCIval)**2
-     $               ) * (getPar(i_par) - p0(i_par))
+     $                  theta_1(idx,i_par)*parminuit(idxCIval) +
+     $                  theta_2(idx,i_par)*parminuit(idxCIval)**2
+     $               ) * (parminuit(i_par) - p0(i_par))
                end if
             end do
          end do
@@ -609,6 +626,8 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       print '('' - - - - - - - - - - reading derivatives... '//
      $         ' - - - - - - - - - - '')'
+
+      call derivs_to_zero
 *     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
       open(103, file = "CIDerivatives.txt", status = 'old', err = 1301)
 
@@ -618,6 +637,7 @@ c    second line in trash
       read(103,*) trash
 
       read(103,*,end=1304,err=1304) pnames(1:npars)
+
 c    fourth line in trash
       read(103,*) trash
 
@@ -629,21 +649,27 @@ c    fourth line in trash
             idx = DATASETIDX(i_dat, i)
             read(103,1303,end=1302,err=1304,advance='no') dsname, Q2, X
      $                                                  , Y
+            
             read(103,'(E25.15E3)',end=1302,err=1304,advance='no')m0(idx)
+            
             do 1306 i_par = 1, npars
  1306          read(103,'(E25.15E3)',end=1302,err=1304,advance='no')
      $            theta_0(idx, prespars(i_par))
+
             read(103,'(E25.15E3)',end=1302,err=1304,advance='no')m1(idx)
+            
             do 1307 i_par = 1, npars
  1307          read(103,'(E25.15E3)',end=1302,err=1304,advance='no')
      $            theta_1(idx, prespars(i_par))
+            
             read(103,'(E25.15E3)',end=1302,err=1304,advance='no')m2(idx)
+            
             do 1308 i_par = 1, npars - 1
  1308          read(103,'(E25.15E3)',end=1302,err=1304,advance='no') 
      $            theta_2(idx, prespars(i_par))
-
             read(103,'(E25.15E3)',end=1302,err=1304)
      $         theta_2(idx, prespars(npars))
+            
          end do
       end do
 
@@ -690,6 +716,22 @@ c    fourth line in trash
       print *, "Error while reading ""CIDerivatives.txt"""
       call hf_stop
       end function name_to_idx
+      
+      subroutine derivs_to_zero
+      implicit none
+      integer :: i, i_par
+
+      do i = 1, NTOT
+         m0(i) = 0D0
+         m1(i) = 0D0
+         m2(i) = 0D0
+         do i_par = 1, mne
+            theta_0(i, i_par) = 0D0
+            theta_1(i, i_par) = 0D0
+            theta_2(i, i_par) = 0D0
+         enddo
+      enddo
+      end subroutine derivs_to_zero
 
       end
 
@@ -699,14 +741,14 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       include "d506cm.inc"
       include "CI.inc"
 
-      integer i, Ulen
-      parameter(Ulen = size(U))
-      double precision U_save(Ulen)
+      integer i
+      double precision U_save(MNE)
       external CI_read_parameters
 
       U_save = U
-      do i = 1, Ulen
-         U(i) = 0
+      do i = 1, MNE
+         U(i) = 0.
+         p0(i) = 0.
       enddo
 
       call CI_read_parameters(.true.,.false.)
@@ -735,8 +777,10 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       fail = .true.
 
       do i = 1, 200
+         if(NIOFEX(i) .eq. 0) cycle
+
          err = WERR(NIOFEX(i))
-         if(err .ne. 0) then
+         if(err .ne. 0D0) then
             print *, "par #", i, ", error:", err
             fail = .false.
          end if
