@@ -637,6 +637,7 @@ c    second line in trash
       read(103,*) trash
 
       read(103,*,end=1304,err=1304) pnames(1:npars)
+
 c    fourth line in trash
       read(103,*) trash
 
