@@ -196,7 +196,8 @@ C                                        . . . . . . migrad, minimize
             GOTO 5000
          ELSEIF(TRIM(CISimpFitStep) .eq. 'SimpFit') THEN
             CALL CI_READ_SIMP_FIT_DATA
-            CALL CI_READ_MISSING_PARERRORS
+            CALL CI_read_parameters(.true.,.true.)
+            ! CALL CI_READ_MISSING_PARERRORS
          ENDIF
       ENDIF
 

@@ -121,7 +121,6 @@ C           take two steps
             end do
             print*, "||||||||||||||||||||||| CHILD HAS SKIPED THE LOOP"
          else
-            NFCN = NFCN + 1
             X(I) = XTF - D
             CALL MNINEX(X)
             CALL FCN(NPARX,GIN,FS2,U,4,FUTIL)
