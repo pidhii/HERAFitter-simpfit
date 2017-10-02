@@ -425,7 +425,7 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  2661 continue
       close(103)
 
-      call CI_read_Rq
+      call CI_read_CIvar
 
       return
 
@@ -437,33 +437,41 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       end
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*      subroutine CI_read_missing_parerrors
-*      include "d506dp.inc"
-*      include "d506cm.inc"
-*
-*      integer parnum
-*      character*10 parname
-*      double precision parval, parerr
-*      external CI_try_read_Rq
-*
-*
-*      open(103, file = "CISimpFitData.txt", status = 'old', err = 2632)
-*      do
-*         read(103, *, end = 2662) parnum, parname, parval, parerr
-*         if(WERR(NIOFEX(parnum)) .ne. 0d0) cycle
-*         if(TRIM(parname) .eq. "CI_Rq" .and.WERR(NIOFEX(parnum)).eq.0d0)
-*     $      call CI_try_read_Rq
-*
-*         WERR(NIOFEX(parnum)) = parerr
-*      end do
-*
-* 2632 print *, "CI: file 'CISimpFitData.txt' not found."
-* 2662 close(103)
-*
-*      end
+      subroutine CI_read_missing_parerrors
+      include "d506dp.inc"
+      include "d506cm.inc"
+
+      integer parnum
+      character*10 parname
+      double precision parval, parerr
+      external CI_try_read_CIvarerr
+
+
+      open(103, file = "CISimpFitData.txt", status = 'old', err = 2632)
+      do
+         read(103, *, end = 2662) parnum, parname, parval, parerr
+         if(NIOFEX(parnum)       .eq.  0      ) cycle
+         if(WERR(NIOFEX(parnum)) .ne.  0d0    ) cycle
+         if(TRIM(parname)        .eq.  "CI_Rq") cycle
+
+         WERR(NIOFEX(parnum)) = parerr
+      end do
+
+      goto 2666
+
+ 2632 print *, "CI: file 'CISimpFitData.txt' not found."
+      goto 2666
+ 2662 print *, "CI: error while reading 'CISimpFitData.txt'."
+
+   
+ 2666 close(103)
+
+      call CI_try_read_CIvarerr
+
+      end
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      subroutine CI_read_Rq
+      subroutine CI_read_CIvar
       implicit none
 
       include "steering.inc"
@@ -485,12 +493,6 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       external setParValue, setParError
 
 
-      if(.not.doCI) then
-         parminuit(idxCIval) = 0D0
-         WERR(NIOFEX(idxCIval)) = 0D0
-         return
-      endif
-
       open(104, file = "CIval_in.txt", status = 'old', err = 3012)
       read(104, *) parnum, parname, parval, parerr
       parminuit(idxCIval) = parval
@@ -505,36 +507,36 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       end
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*      subroutine CI_try_read_Rq
-*      implicit none
-*
-*      include "steering.inc"
-*
-*      integer parnum
-*      character*10 parname
-*      double precision parval, parerr
-*      
-*      double precision WERR(50), ern(50), erp(50), globc(50)
-*      common/MN7ERR/ erp, ern, WERR, globc
-*
-*      integer nvarl(200), NIOFEX(200), neofix(50)
-*      common/MN7INX/ nvarl, NIOFEX, neofix
-*
-*      double precision :: parminuit(200), ALIM(200), BLIM(200)
-*      common/MN7EXT/ parminuit, ALIM, BLIM
-*
-*
-*      open(103, file = "CIval_in.txt", status = 'old', err = 3023)
-*      read(103, *) parnum, parname, parval, parerr
-*      WERR(NIOFEX(idxCIval)) = parerr
-*      goto 3063
-*
-* 3023  continue
-*      print *, "CI: file 'CIval_in.txt' not found."
-* 3063  continue
-*      close(103)
-*
-*      end
+      subroutine CI_try_read_CIvarerr
+      implicit none
+
+      include "steering.inc"
+
+      integer parnum
+      character*10 parname
+      double precision parval, parerr
+      
+      double precision WERR(50), ern(50), erp(50), globc(50)
+      common/MN7ERR/ erp, ern, WERR, globc
+
+      integer nvarl(200), NIOFEX(200), neofix(50)
+      common/MN7INX/ nvarl, NIOFEX, neofix
+
+      double precision :: parminuit(200), ALIM(200), BLIM(200)
+      common/MN7EXT/ parminuit, ALIM, BLIM
+
+
+      open(103, file = "CIval_in.txt", status = 'old', err = 3023)
+      read(103, *) parnum, parname, parval, parerr
+      WERR(NIOFEX(idxCIval)) = parerr
+      goto 3063
+
+ 3023  continue
+      print *, "CI: file 'CIval_in.txt' not found."
+ 3063  continue
+      close(103)
+
+      end
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       subroutine simpfcn(g_dummy, chi2out, parminuit, iflag)

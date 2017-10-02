@@ -91,8 +91,8 @@ c to breaking a hollerith constant across lines - J. Pumplin 8/2000.
          TLRGRD = 0.02
       ENDIF
 C                                loop over variable parameters
-      DO 60  I=1,NPAR
-      EPSPRI = EPSMA2 + ABS(GRD(I)*EPSMA2)
+      DO 60 I = 1, NPAR
+         EPSPRI = EPSMA2 + ABS(GRD(I)*EPSMA2)
 C         two-point derivatives always assumed necessary
 C         maximum number of cycles over step size depends on strategy
       XTF = X(I)
