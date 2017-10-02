@@ -380,15 +380,7 @@ C-------------------------------------------------------------
       character*32 parname
       character*32 fname
 
-      external CI_calc_derivatives
-      external CI_scan_parerrors
-
 C-------------------------------------------------------------
-      PRINT *, " ---<=={ checking errors (VI) (write_pars) }==>--- "
-      call CI_scan_parerrors
-
-
-
       if (ifcn3.lt.10) then
 c RP         write (fname,'(''output/parsout_'',i1)') ifcn3
          write (fname,'( a,''/parsout_'',i1)') TRIM(OutDirName),ifcn3

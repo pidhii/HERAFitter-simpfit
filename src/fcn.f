@@ -59,7 +59,7 @@ C Store FCN flag in a common block:
       endif
 
 
-      if(CIdoSimpFit) then
+      if(iflag .ne. 1 .and. CIdoSimpFit) then
          if(TRIM(CIsimpFitStep) .eq. "SimpFit") then
             call simpfcn(g_dummy, chi2out, parminuit, iflag)
             return
@@ -240,7 +240,7 @@ C--------------------------------------------------------------
 
 
       if(CIDoSimpFit) then
-         if(TRIM(CIsimpFitStep) .eq. "SimpFit") then
+         if(iflag .ne. 1 .and. TRIM(CIsimpFitStep) .eq. "SimpFit") then
             goto 99
          else if(TRIM(CIsimpFitStep) .eq. "CalcDerivatives") then
             print *, " --- skipping fcn..."

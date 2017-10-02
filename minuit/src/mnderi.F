@@ -84,7 +84,6 @@ c to breaking a hollerith constant across lines - J. Pumplin 8/2000.
          TLRGRD = 0.02
       ENDIF
 C                                loop over variable parameters
-      print*,"[DEBUG] mnderi:NPAR:", NPAR
       DO 60 I = 1, NPAR
          EPSPRI = EPSMA2 + ABS(GRD(I)*EPSMA2)
 C         two-point derivatives always assumed necessary
