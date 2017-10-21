@@ -128,7 +128,7 @@ C         take step positive
          do
             continue
          end do
-         print*, "||||||||||||||||||||||| CHILD HAS SKIPED THE LOOP"
+         print*, "||||||||||||||||||||||| CHILD HAS SKIPPED THE LOOP"
       ELSE
 C         take step negative
          X(I) = XTF - STEP

@@ -492,6 +492,7 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       external setParValue, setParError
 
+      if(.not. doCI) return
 
       open(104, file = "CIval_in.txt", status = 'old', err = 3012)
       read(104, *) parnum, parname, parval, parerr

@@ -119,7 +119,7 @@ C           take two steps
             do
                continue
             end do
-            print*, "||||||||||||||||||||||| CHILD HAS SKIPED THE LOOP"
+            print*, "||||||||||||||||||||||| CHILD HAS SKIPPED THE LOOP"
          else
             X(I) = XTF - D
             CALL MNINEX(X)
