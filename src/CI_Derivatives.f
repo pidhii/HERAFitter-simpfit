@@ -364,8 +364,7 @@ c               . . . . . . . . . . . . . . . . . . . . . .
          if(idxY .eq. 0) then
             idxS = GetInfoIndex(i_dat, 'sqrt(S)')
             if(idxS .gt. 0) then
-               S(i_dat) = (DATASETInfo(GetInfoIndex(i_dat, 'sqrt(S)')
-     $                                                       ,i_dat))**2
+               S(i_dat) = (DATASETInfo(GetInfoIndex(i_dat, 'sqrt(S)') ,i_dat))**2
             endif
          endif
 
@@ -405,7 +404,11 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       if(read_pars) then
          do i = 1, mne
             U(i) = 0D0
-            if(i .gt. 50) cycle
+         enddo
+      endif
+
+      if (read_errors) then
+         do i = 1, 50
             WERR(i) = 0D0
          end do
       end if
