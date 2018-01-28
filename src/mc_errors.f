@@ -101,14 +101,14 @@ C ! Introduce asymmetric errors, for Gaussian case only:
                   syssh = syssh + beta(isys,n0) * rand_shift(isys)
                else
                   if ( rand_shift(isys).gt. 0) then
-                  syssh = syssh + BetaAsym(isys,1,n0) * rand_shift(isys)
+                     syssh = syssh + BetaAsym(isys,1,n0) * rand_shift(isys)
                   else
-                  syssh = syssh + BetaAsym(isys,2,n0) * rand_shift(isys)
+                     syssh = syssh + BetaAsym(isys,2,n0) * rand_shift(isys)
                   endif
                endif
                
             elseif (systype.eq.2) then ! uniform
-                  syssh = syssh + beta(isys,n0) * r_sh_fl(isys)
+               syssh = syssh + beta(isys,n0) * r_sh_fl(isys)
             elseif (systype.eq.3) then ! lognormal
                if (beta(isys,n0).ne.0) then
                   lsig=beta(isys,n0) 
@@ -213,6 +213,8 @@ C Store uncor in %:
             s = s * syssh
 
          endif
+         
+         s = s * syssh
          
  
          print 

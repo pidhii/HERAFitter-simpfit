@@ -251,9 +251,26 @@ C   LW: 1.07 CI theory fitting
       
       print*,'CIstudy: Prepare to add minuit par. doCI = ',doCI
       if(doCI) then
-        if(CIindex.eq.101) then
-          
-        elseif (CIindex.eq.401) then
+
+C==========================================================CI_MODELS
+c        if((CIindex.GT.100).AND.(CIindex.LT.320)) then
+c          print*,'CIstudy: Adding minuit par. FOR CI_models!'
+c          call mnparm(100+nExtraParam+1,CIname
+c     $        ,CIvarval
+c     $        ,CIvarstep
+c     $        ,CIvarmin
+c     $        ,CIvarmax
+c     $        ,ierrf)
+c          if (ierrf.ne.0) then
+c            print *,'Error adding CI parameter to minuit'
+c            print *,'Error code=',ierrf
+c            call HF_errlog(12020505,'F: Error in ExtraParam')
+c          else
+c            idxCIval = 100+nExtraParam+1
+c          endif
+C==========================================================CI_MODELS          
+        if ((CIindex.GE.101).AND.(CIindex.LE.401)) then
+
           print*,'CIstudy: Adding minuit par.'
           call mnparm(100+nExtraParam+1,CIname
      $        ,CIvarval

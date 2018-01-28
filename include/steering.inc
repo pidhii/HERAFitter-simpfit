@@ -175,7 +175,7 @@ C     Namelist for the CI analyses
       character*32 CItype, CIname, CISimpFitStep
       integer CIindex, idxCIval
       double precision CIvarval, CIvarstep, CIvarmin, CIvarmax
-
-      common/CIvars/ CIindex, idxCIval, CItype, CIname, CIvarval, CIvarstep, CIvarmin, CIvarmax, doCI,
-     &               CIDoSimpFit, CISimpFitStep     
+      common/CIvars/CIindex,idxCIval,CItype,CIname,
+     $    CIvarval,CIvarstep,CIvarmin,CIvarmax,doCI,
+     $    CIDoSimpFit, CISimpFitStep
 c<<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>>
